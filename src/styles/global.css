@@ -394,3 +394,73 @@
   }
   .peak-row .country-name,.peak-status-badge{display:none}
 }
+
+
+/* v0.9 — project progress and visual polish */
+
+/* Crown of Europe: six compact progress metrics */
+.crown-stats{
+  grid-template-columns:repeat(3,1fr);
+}
+.crown-stats .stat{
+  min-height:112px;
+}
+.crown-stats .stat:nth-child(-n+3){
+  border-bottom:1px solid #d4d1c9;
+}
+
+/* Make completed peaks visually unmistakable while keeping the editorial look. */
+.peak-row.is-climbed{
+  background:#e3eee6;
+  box-shadow:inset 5px 0 0 #315d40;
+  border-bottom-color:#c5d7c9;
+}
+.peak-row.is-climbed:hover{
+  background:#d8e8dc;
+}
+.peak-row.is-climbed strong{
+  color:#183c25;
+}
+.peak-row.is-climbed .country-name,
+.peak-row.is-climbed .height{
+  color:#496753;
+}
+.peak-row.is-climbed .peak-status-badge.climbed{
+  background:#315d40;
+  border-color:#315d40;
+  color:#fff;
+}
+
+/* Summit pages: titles should stay prominent, but not dominate the whole screen. */
+.summit-hero h1{
+  font-size:clamp(2.7rem,5.3vw,5.4rem);
+  line-height:.98;
+  max-width:1000px;
+}
+
+/* Homepage featured project: warm mountain green rather than near-black. */
+.project-card{
+  background:#647362;
+  color:#fbfaf5;
+}
+.project-card .eyebrow{
+  color:#e2e8df;
+}
+.project-card .button{
+  border-color:#f3f5ef;
+}
+
+/* Keep six stats readable on smaller screens. */
+@media(max-width:800px){
+  .crown-stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .crown-stats .stat{
+    border-bottom:1px solid #d4d1c9;
+  }
+}
+@media(max-width:520px){
+  .crown-stats{
+    grid-template-columns:1fr;
+  }
+}

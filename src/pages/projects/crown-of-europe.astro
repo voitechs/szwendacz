@@ -8,6 +8,19 @@ const sortedPeaks = [...validPeaks].sort((a,b) => (b.height ?? 0) - (a.height ??
 const climbed = validPeaks.filter(p => p.status === 'climbed');
 const highest = climbed.length ? Math.max(...climbed.map(p => p.height ?? 0)) : null;
 const elevationGain = climbed.reduce((sum,p)=>sum+(p.elevationGain ?? 0),0);
+
+// Project progress statistics.
+// Shared-border summits such as Mont Blanc and Korab exist only once in validPeaks,
+// so their elevation is counted once.
+const totalProjectElevation = validPeaks.reduce((sum,p) => sum + (p.height ?? 0), 0);
+const totalElevationClimbed = climbed.reduce((sum,p) => sum + (p.height ?? 0), 0);
+const elevationPercent = totalProjectElevation
+  ? (totalElevationClimbed / totalProjectElevation) * 100
+  : 0;
+const peaksPercent = validPeaks.length
+  ? (climbed.length / validPeaks.length) * 100
+  : 0;
+
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 
 const project = ([lat, lon]) => {
@@ -30,10 +43,13 @@ const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
   <p class="lead">Climbing the highest point of every European country — one summit, one country and one story at a time.</p>
 </section>
 
-<div class="stats">
+<div class="stats crown-stats">
   <div class="stat"><strong>{climbed.length}/{validPeaks.length}</strong><span>peaks climbed</span></div>
-  <div class="stat"><strong>{highest ? `${highest} m` : '—'}</strong><span>highest climbed</span></div>
-  <div class="stat"><strong>{elevationGain ? `${elevationGain.toLocaleString()} m` : '—'}</strong><span>total elevation gain</span></div>
+  <div class="stat"><strong>{peaksPercent.toFixed(1)}%</strong><span>peaks completed</span></div>
+  <div class="stat"><strong>{totalElevationClimbed.toLocaleString()} m</strong><span>total elevation climbed</span></div>
+  <div class="stat"><strong>{elevationPercent.toFixed(1)}%</strong><span>total elevation completed</span></div>
+  <div class="stat"><strong>{highest ? `${highest.toLocaleString()} m` : '—'}</strong><span>highest climbed</span></div>
+  <div class="stat"><strong>{elevationGain ? `${elevationGain.toLocaleString()} m` : '—'}</strong><span>recorded elevation gain</span></div>
 </div>
 
 <section>

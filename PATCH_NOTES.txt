@@ -1,0 +1,15 @@
+Szwendacz GitHub patch v0.9
+
+Replace only these files in the current main branch:
+- src/pages/projects/crown-of-europe.astro
+- src/pages/projects/crown-of-europe/[slug].astro
+- src/pages/index.astro
+- src/styles/global.css
+
+Changes:
+- Crown of Europe: total elevation climbed
+- Crown of Europe: % of total elevation climbed
+- Crown of Europe: % of peaks climbed
+- improved green treatment for climbed peak rows
+- slightly smaller summit page titles
+- new muted mountain-green Crown of Europe card on homepage
