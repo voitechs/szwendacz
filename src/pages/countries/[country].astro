@@ -3,10 +3,15 @@ import Layout from '../../layouts/Layout.astro';
 import peaks from '../../data/crown-of-europe.json';
 
 export function getStaticPaths() {
-  const countries = [...new Set(peaks.map(p => p.country))];
-  return countries.map(country => ({
-    params: { country: peaks.find(p => p.country === country).countrySlug },
-    props: { country, countryPeaks: peaks.filter(p => p.country === country) }
+  const countryPairs = new Map();
+  peaks.forEach(p => {
+    const countries = p.countries ?? [p.country];
+    const slugs = p.countrySlugs ?? [p.countrySlug];
+    countries.forEach((country, i) => countryPairs.set(country, slugs[i] ?? p.countrySlug));
+  });
+  return [...countryPairs.entries()].map(([country, slug]) => ({
+    params: { country: slug },
+    props: { country, countryPeaks: peaks.filter(p => (p.countries ?? [p.country]).includes(country)) }
   }));
 }
 const { country, countryPeaks } = Astro.props;

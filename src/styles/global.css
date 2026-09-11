@@ -334,3 +334,63 @@
 @media(max-width:720px){
   .photo-lightbox{padding:34px 10px 10px}
 }
+
+/* v0.7 — Crown of Europe usability */
+.country-shape.climbed{
+  fill:#b8cdbd;
+  stroke:#45634f;
+  stroke-width:2;
+}
+.country-shape.planned{
+  fill:#e5d5ad;
+  stroke:#a57b28;
+  stroke-width:1.8;
+}
+.map-point.climbed{fill:#244d34}
+.map-point-ring.climbed{stroke:#244d34;opacity:.7;stroke-width:4}
+
+.peak-row{
+  grid-template-columns:42px minmax(130px,1fr) minmax(180px,2fr) 95px 90px 22px;
+}
+.rank-number{
+  width:28px;height:28px;border-radius:50%;
+  display:grid;place-items:center;
+  font-size:.72rem;color:#777;
+  border:1px solid #ccc;
+}
+.rank-number.done{
+  background:#284c35;color:#fff;border-color:#284c35;
+  font-weight:700;
+}
+.peak-row.is-climbed{
+  background:#f0f5f1;
+  box-shadow:inset 4px 0 0 #284c35;
+}
+.peak-row.is-climbed:hover{background:#e8f0ea}
+.peak-status-badge{
+  justify-self:start;
+  padding:5px 8px;
+  font-size:.66rem;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  border:1px solid #ccc;
+  color:#777;
+  white-space:nowrap;
+}
+.peak-status-badge.climbed{
+  color:#284c35;
+  border-color:#87a18d;
+  background:#e5eee7;
+  font-weight:700;
+}
+.peak-status-badge.planned{
+  color:#7b5a19;
+  border-color:#c5a45d;
+  background:#f3ead5;
+}
+@media(max-width:720px){
+  .peak-row{
+    grid-template-columns:34px 1fr 72px 18px;
+  }
+  .peak-row .country-name,.peak-status-badge{display:none}
+}

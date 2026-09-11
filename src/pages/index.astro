@@ -57,7 +57,7 @@ const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
           <rect x="0" y="0" width="1000" height="620" fill="#eceae2" />
           <g class="country-layer">
             {europeMap.map(country => {
-              const related = validPeaks.find(p => p.country === country.name);
+              const related = validPeaks.find(p => (p.countries ?? [p.country]).includes(country.name));
               const status = related?.status ?? 'neutral';
               return country.paths.map(path => (
                 <path class:list={['country-shape', status]} d={path} aria-label={country.name}></path>
@@ -69,13 +69,6 @@ const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
               <g class="map-point-group">
                 <circle class:list={['map-point-ring', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 13 : 9} />
                 <circle class:list={['map-point', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 7 : 5} />
-                {p.status === 'climbed' && (
-                  <g class="map-label">
-                    <rect x={p.x + 14} y={p.y - 25} width="120" height="38" rx="2" />
-                    <text x={p.x + 24} y={p.y - 10}>{p.country}</text>
-                    <text class="peak-label" x={p.x + 24} y={p.y + 5}>{p.name}</text>
-                  </g>
-                )}
               </g>
             </a>
           ))}

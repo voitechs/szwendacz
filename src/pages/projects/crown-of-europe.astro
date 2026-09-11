@@ -4,6 +4,7 @@ import peaks from '../../data/crown-of-europe.json';
 import europeMap from '../../data/europe-map.json';
 
 const validPeaks = peaks.filter(p => p.slug && p.countrySlug);
+const sortedPeaks = [...validPeaks].sort((a,b) => (b.height ?? 0) - (a.height ?? 0) || a.name.localeCompare(b.name));
 const climbed = validPeaks.filter(p => p.status === 'climbed');
 const highest = climbed.length ? Math.max(...climbed.map(p => p.height ?? 0)) : null;
 const elevationGain = climbed.reduce((sum,p)=>sum+(p.elevationGain ?? 0),0);
@@ -44,7 +45,7 @@ const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
       <rect x="0" y="0" width="1000" height="620" fill="#eceae2" />
       <g class="country-layer">
         {europeMap.map(country => {
-          const related = validPeaks.find(p => p.country === country.name);
+          const related = validPeaks.find(p => (p.countries ?? [p.country]).includes(country.name));
           const status = related?.status ?? 'neutral';
           return country.paths.map(path => (
             <path class:list={['country-shape', status]} d={path} aria-label={country.name}></path>
@@ -66,12 +67,13 @@ const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
     <div><div class="eyebrow">{validPeaks.length} summits</div><h2>Peak list</h2></div>
   </div>
   <div class="peak-list">
-    {validPeaks.map(p => (
-      <a class="peak-row" href={`${base}projects/crown-of-europe/${p.slug}/`}>
-        <span class:list={['status-dot', p.status]}></span>
+    {sortedPeaks.map((p, index) => (
+      <a class:list={['peak-row', p.status === 'climbed' && 'is-climbed']} href={`${base}projects/crown-of-europe/${p.slug}/`}>
+        <span class:list={['rank-number', p.status === 'climbed' && 'done']}>{p.status === 'climbed' ? '✓' : index + 1}</span>
         <span class="country-name">{p.country}</span>
         <strong>{p.name}</strong>
-        <span class="height">{p.height ? `${p.height} m` : '—'}</span>
+        <span class="height">{p.height ? `${p.height.toLocaleString()} m` : '—'}</span>
+        <span class:list={['peak-status-badge', p.status]}>{p.status === 'climbed' ? 'Climbed' : p.status === 'planned' ? 'Planned' : 'To climb'}</span>
         <span class="arrow">→</span>
       </a>
     ))}

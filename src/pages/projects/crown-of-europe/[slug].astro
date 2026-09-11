@@ -37,7 +37,11 @@ const photos = peak.photos ?? [];
   <div class="wrap">
     <section>
       <div class="summit-metrics">
-        <div><span>Country</span><strong><a href={`${base}countries/${peak.countrySlug}/`}>{peak.country}</a></strong></div>
+        <div><span>{(peak.countries?.length ?? 1) > 1 ? 'Countries' : 'Country'}</span><strong>
+          {(peak.countries?.length ?? 1) > 1
+            ? peak.countries.map((country, i) => <><a href={`${base}countries/${peak.countrySlugs[i]}/`}>{country}</a>{i < peak.countries.length - 1 ? ' / ' : ''}</>)
+            : <a href={`${base}countries/${peak.countrySlug}/`}>{peak.country}</a>}
+        </strong></div>
         <div><span>Elevation</span><strong>{peak.height ? `${peak.height} m` : '—'}</strong></div>
         <div><span>Elevation gain</span><strong>{peak.elevationGain ? `${peak.elevationGain} m` : '—'}</strong></div>
         <div><span>Distance</span><strong>{peak.distance ? `${peak.distance} km` : '—'}</strong></div>
