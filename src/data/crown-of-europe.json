@@ -34,9 +34,9 @@
       6.865
     ],
     "summitDate": "2026-08-29",
-    "elevationGain": null,
-    "distance": null,
-    "durationMinutes": null,
+    "elevationGain": 2411,
+    "distance": 17.4,
+    "durationMinutes": 870,
     "report": null,
     "countries": [
       "France",
