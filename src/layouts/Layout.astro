@@ -1,0 +1,6 @@
+---
+import '../styles/global.css';
+const { title='Szwendacz' }=Astro.props;
+const base=import.meta.env.BASE_URL;
+---
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="description" content="Szwendacz — travel stories, mountains and personal projects."><title>{title}</title></head><body><div class="wrap"><nav class="nav"><a class="brand" href={base}>SZWENDACZ</a><div class="links"><a href={`${base}#travels`}>Travels</a><a href={`${base}projects/crown-of-europe`}>Projects</a><a href={`${base}#map`}>Map</a></div></nav></div><slot/><footer><div class="wrap">SZWENDACZ · Stories from the road.</div></footer></body></html>
