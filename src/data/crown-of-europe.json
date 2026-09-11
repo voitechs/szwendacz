@@ -170,8 +170,8 @@
     "slug": "musala",
     "countrySlug": "bulgaria",
     "countryCenter": [
-      42.7339,
-      25.4858
+      42.179722,
+      23.586667
     ],
     "summitDate": "2021-07-31",
     "elevationGain": null,
@@ -196,7 +196,7 @@
       40.083333,
       22.35
     ],
-    "summitDate": "2021-06-13",,
+    "summitDate": "2021-06-13",
     "elevationGain": null,
     "distance": null,
     "durationMinutes": null,
