@@ -1,0 +1,42 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import peaks from '../../../data/crown-of-europe.json';
+
+export function getStaticPaths() {
+  return peaks.map(peak => ({ params: { slug: peak.slug }, props: { peak } }));
+}
+const { peak } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const statusLabel = peak.status === 'climbed' ? 'Climbed' : peak.status === 'planned' ? 'Planned' : 'Not climbed';
+---
+<Layout title={`${peak.name} — Crown of Europe — Szwendacz`}>
+<main class="wrap">
+  <section class="hero compact summit-hero">
+    <div class="eyebrow">Crown of Europe · {peak.country}</div>
+    <h1>{peak.name}.</h1>
+    <p class="summit-height">{peak.height ? `${peak.height} m` : 'Height pending'}</p>
+    <div class:list={['summit-status', peak.status]}>{statusLabel}</div>
+  </section>
+
+  <section>
+    <div class="summit-metrics">
+      <div><span>Country</span><strong><a href={`${base}countries/${peak.countrySlug}`}>{peak.country}</a></strong></div>
+      <div><span>Elevation</span><strong>{peak.height ? `${peak.height} m` : '—'}</strong></div>
+      <div><span>Elevation gain</span><strong>{peak.elevationGain ? `${peak.elevationGain} m` : '—'}</strong></div>
+      <div><span>Distance</span><strong>{peak.distance ? `${peak.distance} km` : '—'}</strong></div>
+      <div><span>Date</span><strong>{peak.summitDate ?? '—'}</strong></div>
+      <div><span>Duration</span><strong>{peak.durationMinutes ? `${Math.floor(peak.durationMinutes/60)}h ${peak.durationMinutes%60}m` : '—'}</strong></div>
+    </div>
+  </section>
+
+  <section class="report-placeholder">
+    <div class="eyebrow">Trip report</div>
+    <h2>The story will live here.</h2>
+    <p class="lead">This page is ready for your route description, photographs, practical notes and the story of reaching the summit.</p>
+  </section>
+
+  <section>
+    <a class="button dark" href={`${base}projects/crown-of-europe`}>← Back to Crown of Europe</a>
+  </section>
+</main>
+</Layout>

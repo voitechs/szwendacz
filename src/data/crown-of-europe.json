@@ -3,288 +3,807 @@
     "name": "Monte Vaticano",
     "country": "Vatican City",
     "height": 75,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "monte-vaticano",
+    "countrySlug": "vatican-city",
+    "countryCenter": [
+      41.9029,
+      12.4534
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Chemin des Révoires",
     "country": "Monaco",
     "height": 161,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "chemin-des-revoires",
+    "countrySlug": "monaco",
+    "countryCenter": [
+      43.7384,
+      7.4246
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Ta’ Dmejrek",
     "country": "Malta",
     "height": 253,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "ta-dmejrek",
+    "countrySlug": "malta",
+    "countryCenter": [
+      35.9375,
+      14.3754
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Aukštójas",
     "country": "Lithuania",
     "height": 294,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "aukstojas",
+    "countrySlug": "lithuania",
+    "countryCenter": [
+      55.1694,
+      23.8813
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Gaizinkalns",
     "country": "Latvia",
     "height": 312,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "gaizinkalns",
+    "countrySlug": "latvia",
+    "countryCenter": [
+      56.8796,
+      24.6032
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Suur Munamägi",
     "country": "Estonia",
     "height": 317,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "suur-munamagi",
+    "countrySlug": "estonia",
+    "countryCenter": [
+      58.5953,
+      25.0136
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Vaalserberg",
     "country": "Netherlands",
     "height": 322,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "vaalserberg",
+    "countrySlug": "netherlands",
+    "countryCenter": [
+      52.1326,
+      5.2913
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Dzyarzhynskaya Hara",
     "country": "Belarus",
     "height": 345,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "dzyarzhynskaya-hara",
+    "countrySlug": "belarus",
+    "countryCenter": [
+      53.7098,
+      27.9534
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Dealul Bălăneşti",
     "country": "Moldova",
     "height": 428,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "dealul-balanesti",
+    "countrySlug": "moldova",
+    "countryCenter": [
+      47.4116,
+      28.3699
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Jurmysz",
     "country": "Kazakhstan",
     "height": 509,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "jurmysz",
+    "countrySlug": "kazakhstan",
+    "countryCenter": [
+      48.0196,
+      66.9237
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Kneiff",
     "country": "Luxembourg",
     "height": 560,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "kneiff",
+    "countrySlug": "luxembourg",
+    "countryCenter": [
+      49.8153,
+      6.1296
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Signal de Botrange",
     "country": "Belgium",
     "height": 694,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "signal-de-botrange",
+    "countrySlug": "belgium",
+    "countryCenter": [
+      50.5039,
+      4.4699
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Monte Titano",
     "country": "San Marino",
     "height": 739,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "monte-titano",
+    "countrySlug": "san-marino",
+    "countryCenter": [
+      43.9424,
+      12.4578
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Sl?ttaratindur",
     "country": "Dania",
     "height": 880,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "sl-ttaratindur",
+    "countrySlug": "dania",
+    "countryCenter": null,
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Kékes",
     "country": "Hungary",
     "height": 1014,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "kekes",
+    "countrySlug": "hungary",
+    "countryCenter": [
+      47.1625,
+      19.5033
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Mahya Da??",
     "country": "Turkey",
     "height": 1031,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "mahya-da",
+    "countrySlug": "turkey",
+    "countryCenter": [
+      38.9637,
+      35.2433
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Carrantuohill",
     "country": "Ireland",
     "height": 1038,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "carrantuohill",
+    "countrySlug": "ireland",
+    "countryCenter": [
+      53.1424,
+      -7.6921
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Halti",
     "country": "Finland",
     "height": 1324,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "halti",
+    "countrySlug": "finland",
+    "countryCenter": [
+      61.9241,
+      25.7482
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Ben Nevis",
     "country": "United Kingdom",
     "height": 1345,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "ben-nevis",
+    "countrySlug": "united-kingdom",
+    "countryCenter": [
+      55.3781,
+      -3.436
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Sněžka",
     "country": "Czechia",
     "height": 1603,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "snezka",
+    "countrySlug": "czechia",
+    "countryCenter": null,
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Vrh Dinare",
     "country": "Croatia",
     "height": 1831,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "vrh-dinare",
+    "countrySlug": "croatia",
+    "countryCenter": [
+      45.1,
+      15.2
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Elbrus",
     "country": "Russia",
     "height": 5642,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "elbrus",
+    "countrySlug": "russia",
+    "countryCenter": [
+      55.7558,
+      37.6173
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Howerla",
     "country": "Ukraine",
     "height": 2061,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "howerla",
+    "countrySlug": "ukraine",
+    "countryCenter": [
+      48.3794,
+      31.1656
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Kebnekaise",
     "country": "Sweden",
     "height": 2097,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "kebnekaise",
+    "countrySlug": "sweden",
+    "countryCenter": [
+      60.1282,
+      18.6435
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Hvannadalshnúkur",
     "country": "Iceland",
     "height": 2110,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "hvannadalshnukur",
+    "countrySlug": "iceland",
+    "countryCenter": [
+      64.9631,
+      -19.0208
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Midżur",
     "country": "Serbia",
     "height": 2169,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "midzur",
+    "countrySlug": "serbia",
+    "countryCenter": [
+      44.0165,
+      21.0059
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Pico",
     "country": "Portugal",
     "height": 2351,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "pico",
+    "countrySlug": "portugal",
+    "countryCenter": [
+      39.3999,
+      -8.2245
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Maglić",
     "country": "Bosnia and Herzegovina",
     "height": 2386,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "maglic",
+    "countrySlug": "bosnia-and-herzegovina",
+    "countryCenter": [
+      43.9159,
+      17.6791
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Galdh?piggen",
     "country": "Norway",
     "height": 2469,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "galdh-piggen",
+    "countrySlug": "norway",
+    "countryCenter": [
+      60.472,
+      8.4689
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Rysy",
     "country": "Poland",
     "height": 2499,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "rysy",
+    "countrySlug": "poland",
+    "countryCenter": [
+      51.9194,
+      19.1451
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Zla Kolata",
     "country": "Montenegro",
     "height": 2534,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "zla-kolata",
+    "countrySlug": "montenegro",
+    "countryCenter": [
+      42.7087,
+      19.3744
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Moldoveanu",
     "country": "Romania",
     "height": 2544,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "moldoveanu",
+    "countrySlug": "romania",
+    "countryCenter": [
+      45.9432,
+      24.9668
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Vorder Grauspitz",
     "country": "Liechtenstein",
     "height": 2599,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "vorder-grauspitz",
+    "countrySlug": "liechtenstein",
+    "countryCenter": [
+      47.166,
+      9.5554
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Gerlachovský štít",
     "country": "Slovakia",
     "height": 2655,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "gerlachovsky-stit",
+    "countrySlug": "slovakia",
+    "countryCenter": [
+      48.669,
+      19.699
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Velika Rudoka",
     "country": "Kosovo",
     "height": 2660,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "velika-rudoka",
+    "countrySlug": "kosovo",
+    "countryCenter": [
+      42.6026,
+      20.903
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Korab",
     "country": "Albania",
     "height": 2764,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "korab",
+    "countrySlug": "albania",
+    "countryCenter": [
+      41.1533,
+      20.1683
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Korab",
     "country": "North Macedonia",
     "height": 2764,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "korab",
+    "countrySlug": "north-macedonia",
+    "countryCenter": [
+      41.6086,
+      21.7453
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Triglav",
     "country": "Slovenia",
     "height": 2864,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "triglav",
+    "countrySlug": "slovenia",
+    "countryCenter": [
+      46.1512,
+      14.9955
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Mitikas",
     "country": "Greece",
     "height": 2918,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "mitikas",
+    "countrySlug": "greece",
+    "countryCenter": [
+      39.0742,
+      21.8243
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Musala",
     "country": "Bulgaria",
     "height": 2925,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "musala",
+    "countrySlug": "bulgaria",
+    "countryCenter": [
+      42.7339,
+      25.4858
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Pic de Coma Pedrosa",
     "country": "Andorra",
     "height": 2942,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "pic-de-coma-pedrosa",
+    "countrySlug": "andorra",
+    "countryCenter": [
+      42.5063,
+      1.5218
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Zugspitze",
     "country": "Germany",
     "height": 2962,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "zugspitze",
+    "countrySlug": "germany",
+    "countryCenter": [
+      51.1657,
+      10.4515
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Mulhacén",
     "country": "Spain",
     "height": 3479,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "mulhacen",
+    "countrySlug": "spain",
+    "countryCenter": [
+      40.4637,
+      -3.7492
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Großglockner",
     "country": "Austria",
     "height": 3798,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "groglockner",
+    "countrySlug": "austria",
+    "countryCenter": [
+      47.5162,
+      14.5501
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Dufourspitze",
     "country": "Switzerland",
     "height": 4634,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "dufourspitze",
+    "countrySlug": "switzerland",
+    "countryCenter": [
+      46.8182,
+      8.2275
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Monte Bianco",
     "country": "Italy",
     "height": 4809,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "monte-bianco",
+    "countrySlug": "italy",
+    "countryCenter": [
+      41.8719,
+      12.5674
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "Mont Blanc",
     "country": "France",
     "height": 4809,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "mont-blanc",
+    "countrySlug": "france",
+    "countryCenter": [
+      46.2276,
+      2.2137
+    ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   },
   {
     "name": "",
     "country": "",
     "height": null,
-    "status": "not-climbed"
+    "status": "not-climbed",
+    "slug": "",
+    "countrySlug": "",
+    "countryCenter": null,
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
   }
 ]

@@ -1,5 +1,103 @@
 ---
-import Layout from '../../layouts/Layout.astro'; import peaks from '../../data/crown-of-europe.json';
-const climbed=peaks.filter(p=>p.status==='climbed'); const highest=climbed.length?Math.max(...climbed.map(p=>p.height??0)):null;
+import Layout from '../../layouts/Layout.astro';
+import peaks from '../../data/crown-of-europe.json';
+const climbed = peaks.filter(p => p.status === 'climbed');
+const planned = peaks.filter(p => p.status === 'planned');
+const highest = climbed.length ? Math.max(...climbed.map(p => p.height ?? 0)) : null;
+const elevationGain = climbed.reduce((sum,p)=>sum+(p.elevationGain ?? 0),0);
+const base = import.meta.env.BASE_URL;
 ---
-<Layout title="Crown of Europe — Szwendacz"><main class="wrap"><section class="hero"><div class="eyebrow">Project</div><h1>Crown of<br/>Europe.</h1><p class="lead">A journey to the highest points of European countries. Each summit will connect to its country, trip report, route statistics and photographs.</p></section><div class="stats"><div class="stat"><strong>{climbed.length}/{peaks.length}</strong><span>peaks climbed</span></div><div class="stat"><strong>{highest?`${highest} m`:'—'}</strong><span>highest climbed</span></div><div class="stat"><strong>—</strong><span>total elevation gain</span></div></div><section><div class="eyebrow">Peak list</div><h2>All peaks</h2><table><thead><tr><th>Country</th><th>Peak</th><th>Height</th><th>Status</th></tr></thead><tbody>{peaks.map(p=><tr><td>{p.country}</td><td>{p.name}</td><td>{p.height?`${p.height} m`:'—'}</td><td>{p.status==='climbed'?'Climbed':'Not climbed'}</td></tr>)}</tbody></table></section></main></Layout>
+<Layout title="Crown of Europe — Szwendacz">
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIINfQ3Kqt2HNPMqjMZk4WfXc0RYJ9AL8vQ=" crossorigin="" />
+</head>
+<main class="wrap">
+<section class="hero compact">
+  <div class="eyebrow">Project</div>
+  <h1>Crown of<br/>Europe.</h1>
+  <p class="lead">Climbing the highest point of every European country — one summit, one country and one story at a time.</p>
+</section>
+
+<div class="stats">
+  <div class="stat"><strong>{climbed.length}/{peaks.length}</strong><span>peaks climbed</span></div>
+  <div class="stat"><strong>{highest ? `${highest} m` : '—'}</strong><span>highest climbed</span></div>
+  <div class="stat"><strong>{elevationGain ? `${elevationGain.toLocaleString()} m` : '—'}</strong><span>total elevation gain</span></div>
+</div>
+
+<section>
+  <div class="section-head">
+    <div><div class="eyebrow">Explore the project</div><h2>Europe map</h2></div>
+    <div class="map-legend"><span><i class="legend-dot climbed"></i>Climbed</span><span><i class="legend-dot planned"></i>Planned</span><span><i class="legend-dot not-climbed"></i>Not climbed</span></div>
+  </div>
+  <div id="crown-map" class="map"></div>
+  <p class="map-note">Markers represent countries for navigation. Exact summit coordinates will be added with individual climb data.</p>
+</section>
+
+<section>
+  <div class="section-head">
+    <div><div class="eyebrow">48 summits</div><h2>Peak list</h2></div>
+    <div class="filters">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="climbed">Climbed</button>
+      <button class="filter" data-filter="planned">Planned</button>
+      <button class="filter" data-filter="not-climbed">Not climbed</button>
+    </div>
+  </div>
+
+  <div class="peak-list" id="peak-list">
+    {peaks.map(p => (
+      <a class="peak-row" data-status={p.status} href={`${base}projects/crown-of-europe/${p.slug}`}>
+        <span class:list={['status-dot', p.status]}></span>
+        <span class="country-name">{p.country}</span>
+        <strong>{p.name}</strong>
+        <span class="height">{p.height ? `${p.height} m` : '—'}</span>
+        <span class="arrow">→</span>
+      </a>
+    ))}
+  </div>
+</section>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script define:vars={{ peaks, base }}>
+  const map = L.map('crown-map', { scrollWheelZoom: false }).setView([52, 15], 3.45);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  const markerClass = status => status === 'climbed' ? 'climbed' : status === 'planned' ? 'planned' : 'not-climbed';
+
+  peaks.forEach(p => {
+    if (!p.countryCenter) return;
+    const icon = L.divIcon({
+      className: 'country-marker-wrap',
+      html: `<span class="country-marker ${markerClass(p.status)}"></span>`,
+      iconSize: [18,18],
+      iconAnchor: [9,9]
+    });
+    L.marker(p.countryCenter, { icon }).addTo(map).bindPopup(`
+      <div class="map-popup">
+        <small>${p.country}</small>
+        <strong>${p.name}</strong>
+        <span>${p.height ? `${p.height} m` : ''}</span>
+        <a href="${base}countries/${p.countrySlug}">Explore ${p.country} →</a>
+        <a href="${base}projects/crown-of-europe/${p.slug}">Peak details →</a>
+      </div>
+    `);
+  });
+
+  document.querySelectorAll('.filter').forEach(button => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      const filter = button.dataset.filter;
+      document.querySelectorAll('.peak-row').forEach(row => {
+        row.style.display = filter === 'all' || row.dataset.status === filter ? 'grid' : 'none';
+      });
+    });
+  });
+</script>
+</Layout>

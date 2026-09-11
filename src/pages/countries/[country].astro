@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import peaks from '../../data/crown-of-europe.json';
+
+export function getStaticPaths() {
+  const countries = [...new Set(peaks.map(p => p.country))];
+  return countries.map(country => ({
+    params: { country: peaks.find(p => p.country === country).countrySlug },
+    props: { country, countryPeaks: peaks.filter(p => p.country === country) }
+  }));
+}
+const { country, countryPeaks } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<Layout title={`${country} — Szwendacz`}>
+<main class="wrap">
+  <section class="hero compact">
+    <div class="eyebrow">Country</div>
+    <h1>{country}.</h1>
+    <p class="lead">Trips, places and mountain projects connected with {country}.</p>
+  </section>
+
+  <section class="country-project">
+    <div class="eyebrow">Crown of Europe</div>
+    <h2>{countryPeaks.length === 1 ? 'Highest point' : 'Project peaks'}</h2>
+    <div class="peak-grid">
+      {countryPeaks.map(p => (
+        <a class="peak-card" href={`${base}projects/crown-of-europe/${p.slug}`}>
+          <span class:list={['status-dot', p.status]}></span>
+          <div>
+            <strong>{p.name}</strong>
+            <span>{p.height ? `${p.height} m` : 'Height pending'}</span>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Travel journal</div>
+    <h2>Stories from {country}</h2>
+    <p class="muted">Trip reports and photo stories from this country will appear here.</p>
+  </section>
+</main>
+</Layout>
