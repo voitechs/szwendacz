@@ -801,19 +801,5 @@
     "distance": null,
     "durationMinutes": null,
     "report": null
-  },
-  {
-    "name": "",
-    "country": "",
-    "height": null,
-    "status": "not-climbed",
-    "slug": "",
-    "countrySlug": "",
-    "countryCenter": null,
-    "summitDate": null,
-    "elevationGain": null,
-    "distance": null,
-    "durationMinutes": null,
-    "report": null
   }
 ]
