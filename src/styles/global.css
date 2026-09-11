@@ -226,3 +226,42 @@
   border:0;
   text-align:center;
 }
+
+/* v0.5 — stable SVG map (no Leaflet dependency) */
+.svg-map-shell{
+  width:100%;
+  border:1px solid #d2d0c8;
+  background:#eceae2;
+  overflow:hidden;
+  border-radius:5px;
+}
+.europe-map{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.continent-shape{
+  fill:#d3d0c5;
+  stroke:#b8b5aa;
+  stroke-width:2;
+}
+.continent-shape.islands{
+  fill:#d3d0c5;
+}
+.map-point-ring{
+  fill:none;
+  stroke-width:3;
+  opacity:.35;
+}
+.map-point-ring.climbed{stroke:#284c35}
+.map-point-ring.planned{stroke:#b98528}
+.map-point-ring.not-climbed{stroke:#8d8d8d}
+.map-point.climbed{fill:#284c35}
+.map-point.planned{fill:#b98528}
+.map-point.not-climbed{fill:#969696}
+.map-point-group{cursor:pointer}
+.map-point-group:hover .map-point{r:8}
+.map-label rect{fill:#fff;stroke:#d4d1c8}
+.map-label text{font:12px Inter,system-ui,sans-serif;fill:#222}
+.map-label .peak-label{font-size:10px;fill:#777}
+.home-legend{margin-top:14px}

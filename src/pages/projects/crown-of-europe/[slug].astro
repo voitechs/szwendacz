@@ -6,7 +6,7 @@ export function getStaticPaths() {
   return peaks.filter(p => p.slug && p.countrySlug).map(peak => ({ params: { slug: peak.slug }, props: { peak } }));
 }
 const { peak } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const statusLabel = peak.status === 'climbed' ? 'Climbed' : peak.status === 'planned' ? 'Planned' : 'Not climbed';
 const displayDate = peak.summitDate
   ? new Intl.DateTimeFormat('en-GB', { day:'numeric', month:'long', year:'numeric', timeZone:'UTC' }).format(new Date(`${peak.summitDate}T00:00:00Z`))
@@ -33,7 +33,7 @@ const photos = peak.photos ?? [];
   <div class="wrap">
     <section>
       <div class="summit-metrics">
-        <div><span>Country</span><strong><a href={`${base}countries/${peak.countrySlug}`}>{peak.country}</a></strong></div>
+        <div><span>Country</span><strong><a href={`${base}countries/${peak.countrySlug}/`}>{peak.country}</a></strong></div>
         <div><span>Elevation</span><strong>{peak.height ? `${peak.height} m` : '—'}</strong></div>
         <div><span>Elevation gain</span><strong>{peak.elevationGain ? `${peak.elevationGain} m` : '—'}</strong></div>
         <div><span>Distance</span><strong>{peak.distance ? `${peak.distance} km` : '—'}</strong></div>
@@ -64,7 +64,7 @@ const photos = peak.photos ?? [];
       </section>
     )}
 
-    <section><a class="button dark" href={`${base}projects/crown-of-europe`}>← Back to Crown of Europe</a></section>
+    <section><a class="button dark" href={`${base}projects/crown-of-europe/`}>← Back to Crown of Europe</a></section>
   </div>
 </main>
 </Layout>

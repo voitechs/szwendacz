@@ -10,7 +10,20 @@ const latestClimbs = [...climbed]
   .sort((a,b) => b.summitDate.localeCompare(a.summitDate))
   .slice(0,3);
 const totalGain = climbed.reduce((sum,p) => sum + (p.elevationGain ?? 0), 0);
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
+// Simple equirectangular projection for Europe.
+const project = ([lat, lon]) => {
+  const minLon = -25, maxLon = 45, minLat = 34, maxLat = 72;
+  const x = ((lon - minLon) / (maxLon - minLon)) * 1000;
+  const y = ((maxLat - lat) / (maxLat - minLat)) * 620;
+  return [x, y];
+};
+
+const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
+  const [x,y] = project(p.countryCenter);
+  return {...p, x, y};
+});
 ---
 <Layout title="Szwendacz — Stories from the road">
 <main>
@@ -35,12 +48,47 @@ const base = import.meta.env.BASE_URL;
           <div class="eyebrow">Explore</div>
           <h2>Where I've been climbing</h2>
         </div>
-        <a class="button dark" href={`${base}projects/crown-of-europe`}>Crown of Europe →</a>
+        <a class="button dark" href={`${base}projects/crown-of-europe/`}>Crown of Europe →</a>
       </div>
-    </div>
-    <div class="map-shell"><div id="home-map" class="home-map"></div></div>
-    <div class="wrap">
-      <p class="map-note">Explore countries and summits from the map. Green marks a completed climb; gold is planned; grey is still waiting.</p>
+
+      <div class="svg-map-shell">
+        <svg class="europe-map" viewBox="0 0 1000 620" role="img" aria-label="Interactive map of Crown of Europe summits">
+          <defs>
+            <radialGradient id="seaGlow">
+              <stop offset="0%" stop-color="#f4f2ea"/>
+              <stop offset="100%" stop-color="#e7e5dc"/>
+            </radialGradient>
+          </defs>
+
+          <rect x="0" y="0" width="1000" height="620" fill="url(#seaGlow)" />
+
+          <!-- intentionally minimalist geographic silhouette -->
+          <path class="continent-shape" d="M115 120 L170 75 L240 95 L278 145 L340 130 L386 165 L450 150 L505 175 L555 160 L615 190 L650 240 L690 270 L720 325 L690 370 L635 385 L600 430 L535 445 L500 490 L430 500 L370 470 L320 490 L270 455 L220 420 L185 370 L150 330 L135 275 L105 230 Z"/>
+          <path class="continent-shape islands" d="M95 135 L65 160 L72 205 L100 215 L120 185 Z M205 80 L188 48 L215 30 L240 52 L236 83 Z M325 520 L350 548 L340 585 L315 568 Z"/>
+
+          {mapPeaks.map(p => (
+            <a href={`${base}projects/crown-of-europe/${p.slug}/`} aria-label={`${p.name}, ${p.country}`}>
+              <g class="map-point-group">
+                <circle class:list={['map-point-ring', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 13 : 9} />
+                <circle class:list={['map-point', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 7 : 5} />
+                {p.status === 'climbed' && (
+                  <g class="map-label">
+                    <rect x={p.x + 14} y={p.y - 25} width="120" height="38" rx="2" />
+                    <text x={p.x + 24} y={p.y - 10}>{p.country}</text>
+                    <text class="peak-label" x={p.x + 24} y={p.y + 5}>{p.name}</text>
+                  </g>
+                )}
+              </g>
+            </a>
+          ))}
+        </svg>
+      </div>
+
+      <div class="map-legend home-legend">
+        <span><i class="legend-dot climbed"></i>Climbed</span>
+        <span><i class="legend-dot planned"></i>Planned</span>
+        <span><i class="legend-dot not-climbed"></i>Not climbed</span>
+      </div>
     </div>
   </section>
 
@@ -48,13 +96,13 @@ const base = import.meta.env.BASE_URL;
     <section id="latest-climbs">
       <div class="section-head">
         <div><div class="eyebrow">Mountain journal</div><h2>Latest climbs</h2></div>
-        <a class="button" href={`${base}projects/crown-of-europe`}>View all peaks →</a>
+        <a class="button" href={`${base}projects/crown-of-europe/`}>View all peaks →</a>
       </div>
 
       {latestClimbs.length ? (
         <div class="climb-grid">
           {latestClimbs.map((p, i) => (
-            <a class:list={['climb-card', i === 0 && 'featured']} href={`${base}projects/crown-of-europe/${p.slug}`}>
+            <a class:list={['climb-card', i === 0 && 'featured']} href={`${base}projects/crown-of-europe/${p.slug}/`}>
               {p.photos?.[0] && <img src={`${base}${p.photos[0].replace(/^\//,'')}`} alt={`${p.name}, ${p.country}`} loading={i === 0 ? 'eager' : 'lazy'} />}
               <div class="climb-card-copy">
                 <span class="eyebrow">{p.country} · {p.summitDate}</span>
@@ -78,7 +126,7 @@ const base = import.meta.env.BASE_URL;
         <h2>Crown of Europe</h2>
         <p>Climbing the highest point of every European country.</p>
         <p><strong>{climbed.length} / {validPeaks.length}</strong> peaks climbed</p>
-        <a class="button" href={`${base}projects/crown-of-europe`}>Explore the project →</a>
+        <a class="button" href={`${base}projects/crown-of-europe/`}>Explore the project →</a>
       </div>
     </section>
 
@@ -89,43 +137,4 @@ const base = import.meta.env.BASE_URL;
     </section>
   </div>
 </main>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
- integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">  window.addEventListener('load', () => map.invalidateSize());
-  window.addEventListener('resize', () => map.invalidateSize());
-</script>
-<script define:vars={{ validPeaks, base }}>
-  const map = L.map('home-map', {
-    scrollWheelZoom: false,
-    zoomControl: true
-  }).setView([52, 15], 3.45);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
-
-  const markerClass = status =>
-    status === 'climbed' ? 'climbed' : status === 'planned' ? 'planned' : 'not-climbed';
-
-  validPeaks.forEach(p => {
-    if (!p.countryCenter) return;
-    const icon = L.divIcon({
-      className: 'country-marker-wrap',
-      html: `<span class="country-marker ${markerClass(p.status)}"></span>`,
-      iconSize: [18,18],
-      iconAnchor: [9,9]
-    });
-    L.marker(p.countryCenter, { icon }).addTo(map).bindPopup(`
-      <div class="map-popup">
-        <small>${p.country}</small>
-        <strong>${p.name}</strong>
-        <span>${p.height ? `${p.height} m` : ''}</span>
-        <a href="${base}projects/crown-of-europe/${p.slug}">Open summit →</a>
-      </div>
-    `);
-  });
-  window.addEventListener('load', () => map.invalidateSize());
-  window.addEventListener('resize', () => map.invalidateSize());
-</script>
 </Layout>

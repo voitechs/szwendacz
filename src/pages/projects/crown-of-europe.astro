@@ -1,11 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import peaks from '../../data/crown-of-europe.json';
-const climbed = peaks.filter(p => p.status === 'climbed');
-const planned = peaks.filter(p => p.status === 'planned');
+
+const validPeaks = peaks.filter(p => p.slug && p.countrySlug);
+const climbed = validPeaks.filter(p => p.status === 'climbed');
 const highest = climbed.length ? Math.max(...climbed.map(p => p.height ?? 0)) : null;
 const elevationGain = climbed.reduce((sum,p)=>sum+(p.elevationGain ?? 0),0);
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
+const project = ([lat, lon]) => {
+  const minLon = -25, maxLon = 45, minLat = 34, maxLat = 72;
+  return [
+    ((lon - minLon) / (maxLon - minLon)) * 1000,
+    ((maxLat - lat) / (maxLat - minLat)) * 620
+  ];
+};
+const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
+  const [x,y] = project(p.countryCenter);
+  return {...p, x, y};
+});
 ---
 <Layout title="Crown of Europe — Szwendacz">
 <main class="wrap">
@@ -16,7 +29,7 @@ const base = import.meta.env.BASE_URL;
 </section>
 
 <div class="stats">
-  <div class="stat"><strong>{climbed.length}/{peaks.length}</strong><span>peaks climbed</span></div>
+  <div class="stat"><strong>{climbed.length}/{validPeaks.length}</strong><span>peaks climbed</span></div>
   <div class="stat"><strong>{highest ? `${highest} m` : '—'}</strong><span>highest climbed</span></div>
   <div class="stat"><strong>{elevationGain ? `${elevationGain.toLocaleString()} m` : '—'}</strong><span>total elevation gain</span></div>
 </div>
@@ -24,26 +37,28 @@ const base = import.meta.env.BASE_URL;
 <section>
   <div class="section-head">
     <div><div class="eyebrow">Explore the project</div><h2>Europe map</h2></div>
-    <div class="map-legend"><span><i class="legend-dot climbed"></i>Climbed</span><span><i class="legend-dot planned"></i>Planned</span><span><i class="legend-dot not-climbed"></i>Not climbed</span></div>
   </div>
-  <div class="map-shell"><div id="crown-map" class="map"></div></div>
-  <p class="map-note">Markers represent countries for navigation. Exact summit coordinates will be added with individual climb data.</p>
+  <div class="svg-map-shell">
+    <svg class="europe-map" viewBox="0 0 1000 620" role="img" aria-label="Crown of Europe map">
+      <rect x="0" y="0" width="1000" height="620" fill="#eceae2" />
+      <path class="continent-shape" d="M115 120 L170 75 L240 95 L278 145 L340 130 L386 165 L450 150 L505 175 L555 160 L615 190 L650 240 L690 270 L720 325 L690 370 L635 385 L600 430 L535 445 L500 490 L430 500 L370 470 L320 490 L270 455 L220 420 L185 370 L150 330 L135 275 L105 230 Z"/>
+      {mapPeaks.map(p => (
+        <a href={`${base}projects/crown-of-europe/${p.slug}/`}>
+          <circle class:list={['map-point-ring', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 13 : 9} />
+          <circle class:list={['map-point', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 7 : 5} />
+        </a>
+      ))}
+    </svg>
+  </div>
 </section>
 
 <section>
   <div class="section-head">
-    <div><div class="eyebrow">48 summits</div><h2>Peak list</h2></div>
-    <div class="filters">
-      <button class="filter active" data-filter="all">All</button>
-      <button class="filter" data-filter="climbed">Climbed</button>
-      <button class="filter" data-filter="planned">Planned</button>
-      <button class="filter" data-filter="not-climbed">Not climbed</button>
-    </div>
+    <div><div class="eyebrow">{validPeaks.length} summits</div><h2>Peak list</h2></div>
   </div>
-
-  <div class="peak-list" id="peak-list">
-    {peaks.map(p => (
-      <a class="peak-row" data-status={p.status} href={`${base}projects/crown-of-europe/${p.slug}`}>
+  <div class="peak-list">
+    {validPeaks.map(p => (
+      <a class="peak-row" href={`${base}projects/crown-of-europe/${p.slug}/`}>
         <span class:list={['status-dot', p.status]}></span>
         <span class="country-name">{p.country}</span>
         <strong>{p.name}</strong>
@@ -54,50 +69,4 @@ const base = import.meta.env.BASE_URL;
   </div>
 </section>
 </main>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
- integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">  window.addEventListener('load', () => map.invalidateSize());
-  window.addEventListener('resize', () => map.invalidateSize());
-</script>
-<script define:vars={{ peaks, base }}>
-  const map = L.map('crown-map', { scrollWheelZoom: false }).setView([52, 15], 3.45);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
-
-  const markerClass = status => status === 'climbed' ? 'climbed' : status === 'planned' ? 'planned' : 'not-climbed';
-
-  peaks.forEach(p => {
-    if (!p.countryCenter) return;
-    const icon = L.divIcon({
-      className: 'country-marker-wrap',
-      html: `<span class="country-marker ${markerClass(p.status)}"></span>`,
-      iconSize: [18,18],
-      iconAnchor: [9,9]
-    });
-    L.marker(p.countryCenter, { icon }).addTo(map).bindPopup(`
-      <div class="map-popup">
-        <small>${p.country}</small>
-        <strong>${p.name}</strong>
-        <span>${p.height ? `${p.height} m` : ''}</span>
-        <a href="${base}countries/${p.countrySlug}">Explore ${p.country} →</a>
-        <a href="${base}projects/crown-of-europe/${p.slug}">Peak details →</a>
-      </div>
-    `);
-  });
-
-  document.querySelectorAll('.filter').forEach(button => {
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
-      button.classList.add('active');
-      const filter = button.dataset.filter;
-      document.querySelectorAll('.peak-row').forEach(row => {
-        row.style.display = filter === 'all' || row.dataset.status === filter ? 'grid' : 'none';
-      });
-    });
-  });
-  window.addEventListener('load', () => map.invalidateSize());
-  window.addEventListener('resize', () => map.invalidateSize());
-</script>
 </Layout>

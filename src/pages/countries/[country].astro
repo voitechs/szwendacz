@@ -10,7 +10,7 @@ export function getStaticPaths() {
   }));
 }
 const { country, countryPeaks } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 <Layout title={`${country} — Szwendacz`}>
 <main class="wrap">
@@ -25,7 +25,7 @@ const base = import.meta.env.BASE_URL;
     <h2>{countryPeaks.length === 1 ? 'Highest point' : 'Project peaks'}</h2>
     <div class="peak-grid">
       {countryPeaks.map(p => (
-        <a class="peak-card" href={`${base}projects/crown-of-europe/${p.slug}`}>
+        <a class="peak-card" href={`${base}projects/crown-of-europe/${p.slug}/`}>
           <span class:list={['status-dot', p.status]}></span>
           <div>
             <strong>{p.name}</strong>
