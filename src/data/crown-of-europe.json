@@ -189,14 +189,14 @@
     "name": "Mitikas",
     "country": "Greece",
     "height": 2918,
-    "status": "not-climbed",
+    "status": "climbed",
     "slug": "mitikas",
     "countrySlug": "greece",
     "countryCenter": [
-      39.0742,
-      21.8243
+      40.083333,
+      22.35
     ],
-    "summitDate": null,
+    "summitDate": "2021-06-13",,
     "elevationGain": null,
     "distance": null,
     "durationMinutes": null,
@@ -405,7 +405,7 @@
     ]
   },
   {
-    "name": "Galdh?piggen",
+    "name": "Galdhopiggen",
     "country": "Norway",
     "height": 2469,
     "status": "climbed",
@@ -678,7 +678,7 @@
     ]
   },
   {
-    "name": "Mahya Da??",
+    "name": "Mahya Dagi",
     "country": "Turkey",
     "height": 1031,
     "status": "climbed",
@@ -724,7 +724,7 @@
     ]
   },
   {
-    "name": "Sl?ttaratindur",
+    "name": "Slaettaratindur",
     "country": "Dania",
     "height": 880,
     "status": "not-climbed",
