@@ -8,10 +8,6 @@ const elevationGain = climbed.reduce((sum,p)=>sum+(p.elevationGain ?? 0),0);
 const base = import.meta.env.BASE_URL;
 ---
 <Layout title="Crown of Europe — Szwendacz">
-<head>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIINfQ3Kqt2HNPMqjMZk4WfXc0RYJ9AL8vQ=" crossorigin="" />
-</head>
 <main class="wrap">
 <section class="hero compact">
   <div class="eyebrow">Project</div>
@@ -30,7 +26,7 @@ const base = import.meta.env.BASE_URL;
     <div><div class="eyebrow">Explore the project</div><h2>Europe map</h2></div>
     <div class="map-legend"><span><i class="legend-dot climbed"></i>Climbed</span><span><i class="legend-dot planned"></i>Planned</span><span><i class="legend-dot not-climbed"></i>Not climbed</span></div>
   </div>
-  <div id="crown-map" class="map"></div>
+  <div class="map-shell"><div id="crown-map" class="map"></div></div>
   <p class="map-note">Markers represent countries for navigation. Exact summit coordinates will be added with individual climb data.</p>
 </section>
 
