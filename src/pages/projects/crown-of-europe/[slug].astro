@@ -3,40 +3,68 @@ import Layout from '../../../layouts/Layout.astro';
 import peaks from '../../../data/crown-of-europe.json';
 
 export function getStaticPaths() {
-  return peaks.map(peak => ({ params: { slug: peak.slug }, props: { peak } }));
+  return peaks.filter(p => p.slug && p.countrySlug).map(peak => ({ params: { slug: peak.slug }, props: { peak } }));
 }
 const { peak } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const statusLabel = peak.status === 'climbed' ? 'Climbed' : peak.status === 'planned' ? 'Planned' : 'Not climbed';
+const displayDate = peak.summitDate
+  ? new Intl.DateTimeFormat('en-GB', { day:'numeric', month:'long', year:'numeric', timeZone:'UTC' }).format(new Date(`${peak.summitDate}T00:00:00Z`))
+  : '—';
+const photos = peak.photos ?? [];
 ---
 <Layout title={`${peak.name} — Crown of Europe — Szwendacz`}>
-<main class="wrap">
-  <section class="hero compact summit-hero">
-    <div class="eyebrow">Crown of Europe · {peak.country}</div>
-    <h1>{peak.name}.</h1>
-    <p class="summit-height">{peak.height ? `${peak.height} m` : 'Height pending'}</p>
-    <div class:list={['summit-status', peak.status]}>{statusLabel}</div>
-  </section>
+<main>
+  <div class="wrap">
+    <section class="hero compact summit-hero">
+      <div class="eyebrow">Crown of Europe · {peak.country}</div>
+      <h1>{peak.name}.</h1>
+      <p class="summit-height">{peak.height ? `${peak.height} m` : 'Height pending'}</p>
+      <div class:list={['summit-status', peak.status]}>{statusLabel}</div>
+    </section>
+  </div>
 
-  <section>
-    <div class="summit-metrics">
-      <div><span>Country</span><strong><a href={`${base}countries/${peak.countrySlug}`}>{peak.country}</a></strong></div>
-      <div><span>Elevation</span><strong>{peak.height ? `${peak.height} m` : '—'}</strong></div>
-      <div><span>Elevation gain</span><strong>{peak.elevationGain ? `${peak.elevationGain} m` : '—'}</strong></div>
-      <div><span>Distance</span><strong>{peak.distance ? `${peak.distance} km` : '—'}</strong></div>
-      <div><span>Date</span><strong>{peak.summitDate ?? '—'}</strong></div>
-      <div><span>Duration</span><strong>{peak.durationMinutes ? `${Math.floor(peak.durationMinutes/60)}h ${peak.durationMinutes%60}m` : '—'}</strong></div>
-    </div>
-  </section>
+  {photos.length > 0 && (
+    <section class="photo-hero">
+      <img src={`${base}${photos[0].replace(/^\//,'')}`} alt={`Mountain landscape from the ${peak.name} climb`} />
+    </section>
+  )}
 
-  <section class="report-placeholder">
-    <div class="eyebrow">Trip report</div>
-    <h2>The story will live here.</h2>
-    <p class="lead">This page is ready for your route description, photographs, practical notes and the story of reaching the summit.</p>
-  </section>
+  <div class="wrap">
+    <section>
+      <div class="summit-metrics">
+        <div><span>Country</span><strong><a href={`${base}countries/${peak.countrySlug}`}>{peak.country}</a></strong></div>
+        <div><span>Elevation</span><strong>{peak.height ? `${peak.height} m` : '—'}</strong></div>
+        <div><span>Elevation gain</span><strong>{peak.elevationGain ? `${peak.elevationGain} m` : '—'}</strong></div>
+        <div><span>Distance</span><strong>{peak.distance ? `${peak.distance} km` : '—'}</strong></div>
+        <div><span>Summit date</span><strong>{displayDate}</strong></div>
+        <div><span>Duration</span><strong>{peak.durationMinutes ? `${Math.floor(peak.durationMinutes/60)}h ${peak.durationMinutes%60}m` : '—'}</strong></div>
+      </div>
+    </section>
 
-  <section>
-    <a class="button dark" href={`${base}projects/crown-of-europe`}>← Back to Crown of Europe</a>
-  </section>
+    <section class="report-placeholder">
+      <div class="eyebrow">Trip report</div>
+      <h2>{peak.reportTitle ?? `The climb to ${peak.name}`}</h2>
+      {peak.reportParagraphs?.length
+        ? <div class="story">{peak.reportParagraphs.map(paragraph => <p>{paragraph}</p>)}</div>
+        : peak.status === 'climbed'
+          ? <p class="lead">Trip story coming soon.</p>
+          : <p class="lead">This summit is still waiting for its story.</p>}
+    </section>
+
+    {photos.length > 1 && (
+      <section>
+        <div class="eyebrow">From the trail</div>
+        <h2>Photo story</h2>
+        <div class="photo-grid">
+          {photos.slice(1).map((photo, i) => (
+            <figure><img loading="lazy" src={`${base}${photo.replace(/^\//,'')}`} alt={`${peak.name} climb — photograph ${i+2}`} /></figure>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section><a class="button dark" href={`${base}projects/crown-of-europe`}>← Back to Crown of Europe</a></section>
+  </div>
 </main>
 </Layout>

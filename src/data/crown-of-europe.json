@@ -507,18 +507,28 @@
     "name": "Zla Kolata",
     "country": "Montenegro",
     "height": 2534,
-    "status": "not-climbed",
+    "status": "climbed",
     "slug": "zla-kolata",
     "countrySlug": "montenegro",
     "countryCenter": [
       42.7087,
       19.3744
     ],
-    "summitDate": null,
-    "elevationGain": null,
-    "distance": null,
-    "durationMinutes": null,
-    "report": null
+    "summitDate": "2023-06-09",
+    "elevationGain": 1431,
+    "distance": 18.4,
+    "durationMinutes": 600,
+    "report": null,
+    "photos": [
+      "/images/crown-of-europe/zla-kolata/zla-kolata-01.webp",
+      "/images/crown-of-europe/zla-kolata/zla-kolata-02.webp",
+      "/images/crown-of-europe/zla-kolata/zla-kolata-03.webp"
+    ],
+    "reportTitle": "A June Morning on Zla Kolata",
+    "reportParagraphs": [
+      "At dawn, the Ropojana Valley is still submerged in cool shadow, while the crisp mountain air quickly sweeps away the last traces of sleep. The trail climbs steeply, first through damp forest, before emerging above the tree line into a monumental karst landscape. June is a remarkable time to be here: patches of snow still linger in shaded gullies and around the Dvojni Prevoj pass, gleaming in the sunlight and standing out sharply against the grey limestone walls and fresh green grass.",
+      "The final ascent to Montenegro’s highest summit demands care, but the effort is more than rewarded. By the time I reach the top, the morning sun is already beginning to feel pleasantly warm, illuminating the jagged white-and-grey landscape of the Dinaric Alps all around me. The view is breathtaking: deep valleys fall away below, the rugged mass of neighbouring Dobra Kolata rises nearby, and the formidable Albanian peaks stand just beyond the close border. Only a light, cool wind disturbs the morning silence, while the scale of the surrounding mountains makes the world below feel distant and almost unreal."
+    ]
   },
   {
     "name": "Moldoveanu",
@@ -786,6 +796,20 @@
       46.2276,
       2.2137
     ],
+    "summitDate": null,
+    "elevationGain": null,
+    "distance": null,
+    "durationMinutes": null,
+    "report": null
+  },
+  {
+    "name": "",
+    "country": "",
+    "height": null,
+    "status": "not-climbed",
+    "slug": "",
+    "countrySlug": "",
+    "countryCenter": null,
     "summitDate": null,
     "elevationGain": null,
     "distance": null,

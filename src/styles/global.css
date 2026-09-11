@@ -31,3 +31,12 @@
  .peak-row{grid-template-columns:14px 1fr 70px 18px}.peak-row .country-name{display:none}
  .peak-grid{grid-template-columns:1fr}.summit-metrics{grid-template-columns:repeat(2,1fr)}
 }
+
+.photo-hero{width:min(1500px,96%);margin:0 auto;padding:0}
+.photo-hero img{display:block;width:100%;height:min(68vh,760px);object-fit:cover}
+.photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.photo-grid figure{margin:0}.photo-grid img{display:block;width:100%;height:430px;object-fit:cover}
+@media(max-width:720px){.photo-grid{grid-template-columns:1fr}.photo-grid img{height:auto}.photo-hero img{height:55vh}}
+
+.story{max-width:760px;font-family:Georgia,serif;font-size:1.16rem;line-height:1.85;color:#343434}
+.story p{margin:0 0 1.4em}
