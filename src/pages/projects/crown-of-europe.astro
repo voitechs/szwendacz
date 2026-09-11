@@ -1,15 +1,40 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import peaks from '../../data/crown-of-europe.json';
-import EuropeProjectMap from '../../components/EuropeProjectMap.astro';
+import europeMap from '../../data/europe-map.json';
+import CountryFlag from '../../components/CountryFlag.astro';
 
 const validPeaks = peaks.filter(p => p.slug && p.countrySlug);
 const sortedPeaks = [...validPeaks].sort((a,b) => (b.height ?? 0) - (a.height ?? 0) || a.name.localeCompare(b.name));
 const climbed = validPeaks.filter(p => p.status === 'climbed');
 const highest = climbed.length ? Math.max(...climbed.map(p => p.height ?? 0)) : null;
 const elevationGain = climbed.reduce((sum,p)=>sum+(p.elevationGain ?? 0),0);
+
+// Project progress statistics.
+// Shared-border summits such as Mont Blanc and Korab exist only once in validPeaks,
+// so their elevation is counted once.
+const totalProjectElevation = validPeaks.reduce((sum,p) => sum + (p.height ?? 0), 0);
+const totalElevationClimbed = climbed.reduce((sum,p) => sum + (p.height ?? 0), 0);
+const elevationPercent = totalProjectElevation
+  ? (totalElevationClimbed / totalProjectElevation) * 100
+  : 0;
+const peaksPercent = validPeaks.length
+  ? (climbed.length / validPeaks.length) * 100
+  : 0;
+
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 
+const project = ([lat, lon]) => {
+  const minLon = -25, maxLon = 45, minLat = 34, maxLat = 72;
+  return [
+    ((lon - minLon) / (maxLon - minLon)) * 1000,
+    ((maxLat - lat) / (maxLat - minLat)) * 620
+  ];
+};
+const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
+  const [x,y] = project(p.countryCenter);
+  return {...p, x, y};
+});
 ---
 <Layout title="Crown of Europe — Szwendacz">
 <main class="wrap">
@@ -19,17 +44,39 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   <p class="lead">Climbing the highest point of every European country — one summit, one country and one story at a time.</p>
 </section>
 
-<div class="stats">
+<div class="stats crown-stats">
   <div class="stat"><strong>{climbed.length}/{validPeaks.length}</strong><span>peaks climbed</span></div>
-  <div class="stat"><strong>{highest ? `${highest} m` : '—'}</strong><span>highest climbed</span></div>
-  <div class="stat"><strong>{elevationGain ? `${elevationGain.toLocaleString()} m` : '—'}</strong><span>total elevation gain</span></div>
+  <div class="stat"><strong>{peaksPercent.toFixed(1)}%</strong><span>peaks completed</span></div>
+  <div class="stat"><strong>{totalElevationClimbed.toLocaleString()} m</strong><span>total elevation climbed</span></div>
+  <div class="stat"><strong>{elevationPercent.toFixed(1)}%</strong><span>total elevation completed</span></div>
+  <div class="stat"><strong>{highest ? `${highest.toLocaleString()} m` : '—'}</strong><span>highest climbed</span></div>
+  <div class="stat"><strong>{elevationGain ? `${elevationGain.toLocaleString()} m` : '—'}</strong><span>recorded elevation gain</span></div>
 </div>
 
 <section>
   <div class="section-head">
     <div><div class="eyebrow">Explore the project</div><h2>Europe map</h2></div>
   </div>
-  <EuropeProjectMap peaks={validPeaks} ariaLabel="Crown of Europe progress map" />
+  <div class="svg-map-shell">
+    <svg class="europe-map" viewBox="0 0 1000 620" role="img" aria-label="Crown of Europe map">
+      <rect x="0" y="0" width="1000" height="620" fill="#eceae2" />
+      <g class="country-layer">
+        {europeMap.map(country => {
+          const related = validPeaks.find(p => (p.countries ?? [p.country]).includes(country.name));
+          const status = related?.status ?? 'neutral';
+          return country.paths.map(path => (
+            <path class:list={['country-shape', status]} d={path} aria-label={country.name}></path>
+          ));
+        })}
+      </g>
+      {mapPeaks.map(p => (
+        <a href={`${base}projects/crown-of-europe/${p.slug}/`}>
+          <circle class:list={['map-point-ring', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 13 : 9} />
+          <circle class:list={['map-point', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 7 : 5} />
+        </a>
+      ))}
+    </svg>
+  </div>
 </section>
 
 <section>
@@ -40,6 +87,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     {sortedPeaks.map((p, index) => (
       <a class:list={['peak-row', p.status === 'climbed' && 'is-climbed']} href={`${base}projects/crown-of-europe/${p.slug}/`}>
         <span class:list={['rank-number', p.status === 'climbed' && 'done']}>{p.status === 'climbed' ? '✓' : index + 1}</span>
+        <CountryFlag countries={p.countries ?? [p.country]} label={`${p.country} flag`} />
         <span class="country-name">{p.country}</span>
         <strong>{p.name}</strong>
         <span class="height">{p.height ? `${p.height.toLocaleString()} m` : '—'}</span>

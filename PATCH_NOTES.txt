@@ -1,25 +1,20 @@
-Szwendacz map patch v1.1
+Szwendacz — Crown of Europe flag icons patch v1.0
 
-Based on the current GitHub main structure.
+Based on the current GitHub main layout.
 
 Replace/add:
 - package.json
-- src/components/EuropeProjectMap.astro
-- src/pages/index.astro
+- src/components/CountryFlag.astro
 - src/pages/projects/crown-of-europe.astro
 - src/styles/global.css
 
 What changes:
-- map geometry comes from Natural Earth 1:50m through world-atlas
-- much more detailed country outlines
-- climbed countries are filled green
-- planned countries are warm gold
-- unclimbed project countries are grey
-- non-project/background countries are lighter
-- countries are clickable and open their country page
-- microstates get small clickable markers so they remain usable
-- no Leaflet, map tiles, or runtime web requests
+- adds a flag icon beside every Crown of Europe peak
+- Mont Blanc uses a single split France / Italy flag icon
+- Korab uses a single split Albania / North Macedonia flag icon
+- flag SVGs are bundled locally during the Astro build
+- no runtime CDN dependency
+- mobile layout keeps the flag visible even when the country text is hidden
 
-New npm dependencies:
-- world-atlas 2.0.2
-- topojson-client 3.1.0
+Dependency added:
+- flag-icons 7.5.0
