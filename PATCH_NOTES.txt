@@ -1,20 +1,24 @@
-Szwendacz — Crown of Europe flag icons patch v1.0
+Szwendacz fix v1.2
 
-Based on the current GitHub main layout.
+This is a coherent replacement set. Upload ALL files from this patch together.
 
-Replace/add:
+Fixes:
+1. Homepage map black screen:
+   - ships EuropeProjectMap.astro together with its complete CSS
+   - explicit SVG background/country fills prevent default black rendering
+2. Crown of Europe featured card:
+   - forced muted mountain-green background
+3. Denmark flag:
+   - current data uses country name "Dania"; CountryFlag now aliases "Dania" to ISO dk
+4. Crown of Europe peak list:
+   - removes the vertical stripe/box-shadow from climbed rows
+   - retains soft green background
+5. Keeps map + flags dependencies together in one package.json
+
+Files:
 - package.json
+- src/components/EuropeProjectMap.astro
 - src/components/CountryFlag.astro
+- src/pages/index.astro
 - src/pages/projects/crown-of-europe.astro
 - src/styles/global.css
-
-What changes:
-- adds a flag icon beside every Crown of Europe peak
-- Mont Blanc uses a single split France / Italy flag icon
-- Korab uses a single split Albania / North Macedonia flag icon
-- flag SVGs are bundled locally during the Astro build
-- no runtime CDN dependency
-- mobile layout keeps the flag visible even when the country text is hidden
-
-Dependency added:
-- flag-icons 7.5.0
