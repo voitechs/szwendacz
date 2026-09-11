@@ -1,5 +1,132 @@
 ---
-import Layout from '../layouts/Layout.astro'; import peaks from '../data/crown-of-europe.json';
-const countries=new Set(peaks.map(p=>p.country)).size; const climbed=peaks.filter(p=>p.status==='climbed').length; const base=import.meta.env.BASE_URL;
+import Layout from '../layouts/Layout.astro';
+import peaks from '../data/crown-of-europe.json';
+
+const validPeaks = peaks.filter(p => p.slug && p.countrySlug);
+const countries = new Set(validPeaks.map(p => p.country)).size;
+const climbed = validPeaks.filter(p => p.status === 'climbed');
+const latestClimbs = [...climbed]
+  .filter(p => p.summitDate)
+  .sort((a,b) => b.summitDate.localeCompare(a.summitDate))
+  .slice(0,3);
+const totalGain = climbed.reduce((sum,p) => sum + (p.elevationGain ?? 0), 0);
+const base = import.meta.env.BASE_URL;
 ---
-<Layout title="Szwendacz — Stories from the road"><main class="wrap"><section class="hero"><div class="eyebrow">Travel journal · Mountains · Projects</div><h1>Stories from<br/>the road.</h1><p class="lead">A personal record of journeys, places and mountains — explored country by country, trail by trail.</p></section><div class="stats"><div class="stat"><strong>{countries}</strong><span>countries in Crown of Europe</span></div><div class="stat"><strong>{peaks.length}</strong><span>project peaks</span></div><div class="stat"><strong>{climbed}</strong><span>peaks climbed</span></div></div><section id="map"><div class="eyebrow">Interactive geography</div><h2>Map</h2><p class="lead">The interactive map will connect countries, places, peaks and trip reports in the next iteration.</p></section><section><div class="card"><div class="eyebrow">Featured project</div><h2>Crown of Europe</h2><p>Climbing the highest point of every European country.</p><p><strong>{climbed} / {peaks.length}</strong> peaks climbed</p><a class="button" href={`${base}projects/crown-of-europe`}>Explore the project →</a></div></section><section id="travels"><div class="eyebrow">Travel journal</div><h2>Latest journeys</h2><p class="muted">Trip reports and photo stories will appear here as you add them.</p></section></main></Layout>
+<Layout title="Szwendacz — Stories from the road">
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIINfQ3Kqt2HNPMqjMZk4WfXc0RYJ9AL8vQ=" crossorigin="" />
+</head>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Travel journal · Mountains · Projects</div>
+      <h1>Stories from<br/>the road.</h1>
+      <p class="lead">A personal record of journeys, places and mountains — explored country by country, trail by trail.</p>
+    </section>
+
+    <div class="stats">
+      <div class="stat"><strong>{countries}</strong><span>project countries</span></div>
+      <div class="stat"><strong>{climbed.length}/{validPeaks.length}</strong><span>Crown of Europe</span></div>
+      <div class="stat"><strong>{totalGain ? `${totalGain.toLocaleString()} m` : '—'}</strong><span>total elevation gain</span></div>
+    </div>
+  </div>
+
+  <section class="home-map-section" id="map">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Explore</div>
+          <h2>Where I've been climbing</h2>
+        </div>
+        <a class="button dark" href={`${base}projects/crown-of-europe`}>Crown of Europe →</a>
+      </div>
+    </div>
+    <div id="home-map" class="home-map"></div>
+    <div class="wrap">
+      <p class="map-note">Explore countries and summits from the map. Green marks a completed climb; gold is planned; grey is still waiting.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section id="latest-climbs">
+      <div class="section-head">
+        <div><div class="eyebrow">Mountain journal</div><h2>Latest climbs</h2></div>
+        <a class="button" href={`${base}projects/crown-of-europe`}>View all peaks →</a>
+      </div>
+
+      {latestClimbs.length ? (
+        <div class="climb-grid">
+          {latestClimbs.map((p, i) => (
+            <a class:list={['climb-card', i === 0 && 'featured']} href={`${base}projects/crown-of-europe/${p.slug}`}>
+              {p.photos?.[0] && <img src={`${base}${p.photos[0].replace(/^\//,'')}`} alt={`${p.name}, ${p.country}`} loading={i === 0 ? 'eager' : 'lazy'} />}
+              <div class="climb-card-copy">
+                <span class="eyebrow">{p.country} · {p.summitDate}</span>
+                <h3>{p.name}</h3>
+                <div class="climb-meta">
+                  <span>{p.height} m</span>
+                  {p.distance && <span>{p.distance} km</span>}
+                  {p.elevationGain && <span>+{p.elevationGain.toLocaleString()} m</span>}
+                </div>
+                <span class="read-story">Read the story →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : <p class="muted">The first climb will appear here.</p>}
+    </section>
+
+    <section>
+      <div class="card">
+        <div class="eyebrow">Featured project</div>
+        <h2>Crown of Europe</h2>
+        <p>Climbing the highest point of every European country.</p>
+        <p><strong>{climbed.length} / {validPeaks.length}</strong> peaks climbed</p>
+        <a class="button" href={`${base}projects/crown-of-europe`}>Explore the project →</a>
+      </div>
+    </section>
+
+    <section id="travels">
+      <div class="eyebrow">Travel journal</div>
+      <h2>Latest journeys</h2>
+      <p class="muted">Longer trip reports will live here alongside the mountain journal.</p>
+    </section>
+  </div>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script define:vars={{ validPeaks, base }}>
+  const map = L.map('home-map', {
+    scrollWheelZoom: false,
+    zoomControl: true
+  }).setView([52, 15], 3.45);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  const markerClass = status =>
+    status === 'climbed' ? 'climbed' : status === 'planned' ? 'planned' : 'not-climbed';
+
+  validPeaks.forEach(p => {
+    if (!p.countryCenter) return;
+    const icon = L.divIcon({
+      className: 'country-marker-wrap',
+      html: `<span class="country-marker ${markerClass(p.status)}"></span>`,
+      iconSize: [18,18],
+      iconAnchor: [9,9]
+    });
+    L.marker(p.countryCenter, { icon }).addTo(map).bindPopup(`
+      <div class="map-popup">
+        <small>${p.country}</small>
+        <strong>${p.name}</strong>
+        <span>${p.height ? `${p.height} m` : ''}</span>
+        <a href="${base}projects/crown-of-europe/${p.slug}">Open summit →</a>
+      </div>
+    `);
+  });
+</script>
+</Layout>

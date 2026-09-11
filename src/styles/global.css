@@ -40,3 +40,21 @@
 
 .story{max-width:760px;font-family:Georgia,serif;font-size:1.16rem;line-height:1.85;color:#343434}
 .story p{margin:0 0 1.4em}
+
+.home-map-section{padding:80px 0 50px;background:#ecebe5}
+.home-map{height:min(68vh,680px);width:100%;background:#ddd;z-index:1}
+.climb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.climb-card{background:white;border:1px solid #d9d7d0;display:block;overflow:hidden}
+.climb-card.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,.8fr)}
+.climb-card img{width:100%;height:310px;display:block;object-fit:cover}
+.climb-card.featured img{height:520px}
+.climb-card-copy{padding:28px;display:flex;flex-direction:column;align-items:flex-start}
+.climb-card h3{font:500 2.25rem/1.05 Georgia,serif;margin:12px 0 18px}
+.climb-meta{display:flex;gap:16px;flex-wrap:wrap;color:#666;font-size:.85rem;border-top:1px solid #ddd;padding-top:14px;width:100%}
+.read-story{margin-top:auto;padding-top:28px;border-bottom:1px solid #222}
+@media(max-width:720px){
+  .home-map{height:520px}
+  .climb-grid{grid-template-columns:1fr}
+  .climb-card.featured{grid-column:auto;display:block}
+  .climb-card.featured img,.climb-card img{height:300px}
+}
