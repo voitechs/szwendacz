@@ -1,24 +1,22 @@
-Szwendacz fix v1.2
+Szwendacz map rollback v1.3
 
-This is a coherent replacement set. Upload ALL files from this patch together.
+This patch keeps the recent non-map changes, but restores the previous stable map.
 
-Fixes:
-1. Homepage map black screen:
-   - ships EuropeProjectMap.astro together with its complete CSS
-   - explicit SVG background/country fills prevent default black rendering
-2. Crown of Europe featured card:
-   - forced muted mountain-green background
-3. Denmark flag:
-   - current data uses country name "Dania"; CountryFlag now aliases "Dania" to ISO dk
-4. Crown of Europe peak list:
-   - removes the vertical stripe/box-shadow from climbed rows
-   - retains soft green background
-5. Keeps map + flags dependencies together in one package.json
+Keeps:
+- flag icons (including Denmark alias and split flags)
+- green Crown of Europe homepage card
+- green climbed-peak rows
+- no vertical stripe on climbed rows
 
-Files:
-- package.json
-- src/components/EuropeProjectMap.astro
-- src/components/CountryFlag.astro
-- src/pages/index.astro
-- src/pages/projects/crown-of-europe.astro
-- src/styles/global.css
+Restores:
+- previous europe-map.json SVG country map
+- previous country/peak styling and map appearance
+
+Removes dependencies:
+- world-atlas
+- topojson-client
+
+Keeps dependency:
+- flag-icons
+
+Upload all files from this patch together.

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import peaks from '../../data/crown-of-europe.json';
-import EuropeProjectMap from '../../components/EuropeProjectMap.astro';
+import europeMap from '../../data/europe-map.json';
 import CountryFlag from '../../components/CountryFlag.astro';
 
 const validPeaks = peaks.filter(p => p.slug && p.countrySlug);
@@ -10,6 +10,18 @@ const climbed = validPeaks.filter(p => p.status === 'climbed');
 const highest = climbed.length ? Math.max(...climbed.map(p => p.height ?? 0)) : null;
 const elevationGain = climbed.reduce((sum,p)=>sum+(p.elevationGain ?? 0),0);
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
+const project = ([lat, lon]) => {
+  const minLon = -25, maxLon = 45, minLat = 34, maxLat = 72;
+  return [
+    ((lon - minLon) / (maxLon - minLon)) * 1000,
+    ((maxLat - lat) / (maxLat - minLat)) * 620
+  ];
+};
+const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
+  const [x,y] = project(p.countryCenter);
+  return {...p, x, y};
+});
 
 ---
 <Layout title="Crown of Europe — Szwendacz">
@@ -30,7 +42,26 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   <div class="section-head">
     <div><div class="eyebrow">Explore the project</div><h2>Europe map</h2></div>
   </div>
-  <EuropeProjectMap peaks={validPeaks} ariaLabel="Crown of Europe progress map" />
+  <div class="svg-map-shell">
+    <svg class="europe-map" viewBox="0 0 1000 620" role="img" aria-label="Crown of Europe map">
+      <rect x="0" y="0" width="1000" height="620" fill="#eceae2" />
+      <g class="country-layer">
+        {europeMap.map(country => {
+          const related = validPeaks.find(p => (p.countries ?? [p.country]).includes(country.name));
+          const status = related?.status ?? 'neutral';
+          return country.paths.map(path => (
+            <path class:list={['country-shape', status]} d={path} aria-label={country.name}></path>
+          ));
+        })}
+      </g>
+      {mapPeaks.map(p => (
+        <a href={`${base}projects/crown-of-europe/${p.slug}/`}>
+          <circle class:list={['map-point-ring', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 13 : 9} />
+          <circle class:list={['map-point', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 7 : 5} />
+        </a>
+      ))}
+    </svg>
+  </div>
 </section>
 
 <section>

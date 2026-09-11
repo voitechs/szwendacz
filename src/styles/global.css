@@ -594,3 +594,61 @@ a:hover .map-country.climbed{
     display:none;
   }
 }
+
+
+/* v1.3 — rollback to the previous stable SVG map appearance */
+.svg-map-shell{
+  width:100%;
+  border:1px solid #d2d0c8;
+  background:#eceae2;
+  overflow:hidden;
+  border-radius:5px;
+  box-shadow:none;
+}
+.europe-map{
+  width:100%;
+  height:auto;
+  display:block;
+  background:#eceae2;
+}
+.country-shape{
+  fill:#d7d4ca;
+  stroke:#a9a69d;
+  stroke-width:1.3;
+  vector-effect:non-scaling-stroke;
+  transition:fill .18s ease, opacity .18s ease;
+}
+.country-shape.climbed{
+  fill:#b8cdbd;
+  stroke:#45634f;
+  stroke-width:2;
+}
+.country-shape.planned{
+  fill:#e5d5ad;
+  stroke:#a57b28;
+  stroke-width:1.8;
+}
+.country-shape.not-climbed{
+  fill:#d7d4ca;
+}
+.country-shape.neutral{
+  fill:#e0ded6;
+  opacity:.85;
+}
+.country-layer path:hover{
+  filter:brightness(.97);
+}
+.map-point-ring{
+  fill:none;
+  stroke-width:3;
+  opacity:.35;
+}
+.map-point-ring.climbed{stroke:#244d34}
+.map-point-ring.planned{stroke:#b98528}
+.map-point-ring.not-climbed{stroke:#8d8d8d}
+.map-point.climbed{fill:#244d34}
+.map-point.planned{fill:#b98528}
+.map-point.not-climbed{fill:#969696}
+.home-map-section{
+  background:#ecebe5;
+}
