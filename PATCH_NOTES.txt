@@ -1,15 +1,15 @@
-Szwendacz GitHub patch v0.9
+Szwendacz — peak coordinates patch v1.0
 
-Replace only these files in the current main branch:
-- src/pages/projects/crown-of-europe.astro
-- src/pages/projects/crown-of-europe/[slug].astro
-- src/pages/index.astro
-- src/styles/global.css
+Replace:
+  src/data/crown-of-europe.json
 
-Changes:
-- Crown of Europe: total elevation climbed
-- Crown of Europe: % of total elevation climbed
-- Crown of Europe: % of peaks climbed
-- improved green treatment for climbed peak rows
-- slightly smaller summit page titles
-- new muted mountain-green Crown of Europe card on homepage
+What changed:
+- all 45 project records now contain `coordinates: [lat, lon]`
+- `countryCenter` is also set to the same summit coordinates for compatibility
+  with the current SVG map code, so no template change is required
+- 44 records use Wikipedia coordinates
+- Jurmysz has no dedicated English Wikipedia page; its coordinate uses a
+  documented Crown of Europe fallback source and is clearly flagged in the audit
+- each record contains `coordinateSource`
+
+See COORDINATE_AUDIT.csv for old/new coordinates and source URLs.
