@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import peaks from '../../data/crown-of-europe.json';
+import europeMap from '../../data/europe-map.json';
 
 const validPeaks = peaks.filter(p => p.slug && p.countrySlug);
 const climbed = validPeaks.filter(p => p.status === 'climbed');
@@ -41,7 +42,15 @@ const mapPeaks = validPeaks.filter(p => p.countryCenter).map(p => {
   <div class="svg-map-shell">
     <svg class="europe-map" viewBox="0 0 1000 620" role="img" aria-label="Crown of Europe map">
       <rect x="0" y="0" width="1000" height="620" fill="#eceae2" />
-      <path class="continent-shape" d="M115 120 L170 75 L240 95 L278 145 L340 130 L386 165 L450 150 L505 175 L555 160 L615 190 L650 240 L690 270 L720 325 L690 370 L635 385 L600 430 L535 445 L500 490 L430 500 L370 470 L320 490 L270 455 L220 420 L185 370 L150 330 L135 275 L105 230 Z"/>
+      <g class="country-layer">
+        {europeMap.map(country => {
+          const related = validPeaks.find(p => p.country === country.name);
+          const status = related?.status ?? 'neutral';
+          return country.paths.map(path => (
+            <path class:list={['country-shape', status]} d={path} aria-label={country.name}></path>
+          ));
+        })}
+      </g>
       {mapPeaks.map(p => (
         <a href={`${base}projects/crown-of-europe/${p.slug}/`}>
           <circle class:list={['map-point-ring', p.status]} cx={p.x} cy={p.y} r={p.status === 'climbed' ? 13 : 9} />

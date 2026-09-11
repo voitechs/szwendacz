@@ -18,16 +18,20 @@ const photos = peak.photos ?? [];
   <div class="wrap">
     <section class="hero compact summit-hero">
       <div class="eyebrow">Crown of Europe · {peak.country}</div>
-      <h1>{peak.name}.</h1>
+      <h1>{peak.country} – {peak.name}</h1>
       <p class="summit-height">{peak.height ? `${peak.height} m` : 'Height pending'}</p>
       <div class:list={['summit-status', peak.status]}>{statusLabel}</div>
     </section>
   </div>
 
   {photos.length > 0 && (
-    <section class="photo-hero">
-      <img src={`${base}${photos[0].replace(/^\//,'')}`} alt={`Mountain landscape from the ${peak.name} climb`} />
-    </section>
+    <div class="wrap">
+      <section class="photo-hero">
+        <button class="gallery-open hero-photo-button" type="button" data-image={`${base}${photos[0].replace(/^\//,'')}`} aria-label="Enlarge main photo">
+          <img src={`${base}${photos[0].replace(/^\//,'')}`} alt={`Mountain landscape from the ${peak.name} climb`} />
+        </button>
+      </section>
+    </div>
   )}
 
   <div class="wrap">
@@ -58,7 +62,7 @@ const photos = peak.photos ?? [];
         <h2>Photo story</h2>
         <div class="photo-grid">
           {photos.slice(1).map((photo, i) => (
-            <figure><img loading="lazy" src={`${base}${photo.replace(/^\//,'')}`} alt={`${peak.name} climb — photograph ${i+2}`} /></figure>
+            <figure><button class="gallery-open" type="button" data-image={`${base}${photo.replace(/^\//,'')}`} aria-label={`Enlarge photograph ${i+2}`}><img loading="lazy" src={`${base}${photo.replace(/^\//,'')}`} alt={`${peak.name} climb — photograph ${i+2}`} /></button></figure>
           ))}
         </div>
       </section>
@@ -66,5 +70,24 @@ const photos = peak.photos ?? [];
 
     <section><a class="button dark" href={`${base}projects/crown-of-europe/`}>← Back to Crown of Europe</a></section>
   </div>
+  <dialog id="photo-lightbox" class="photo-lightbox">
+    <button class="lightbox-close" type="button" aria-label="Close enlarged photo">×</button>
+    <img id="lightbox-image" src="" alt="Enlarged gallery photograph" />
+  </dialog>
+
+  <script>
+    const dialog = document.getElementById('photo-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    document.querySelectorAll('.gallery-open').forEach(button => {
+      button.addEventListener('click', () => {
+        lightboxImage.src = button.dataset.image;
+        dialog.showModal();
+      });
+    });
+    document.querySelector('.lightbox-close')?.addEventListener('click', () => dialog.close());
+    dialog?.addEventListener('click', event => {
+      if (event.target === dialog) dialog.close();
+    });
+  </script>
 </main>
 </Layout>

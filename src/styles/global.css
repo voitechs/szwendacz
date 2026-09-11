@@ -265,3 +265,72 @@
 .map-label text{font:12px Inter,system-ui,sans-serif;fill:#222}
 .map-label .peak-label{font-size:10px;fill:#777}
 .home-legend{margin-top:14px}
+
+/* v0.6 — actual country outlines */
+.country-shape{
+  fill:#d7d4ca;
+  stroke:#a9a69d;
+  stroke-width:1.3;
+  vector-effect:non-scaling-stroke;
+  transition:fill .18s ease, opacity .18s ease;
+}
+.country-shape.climbed{fill:#c5d4c8;stroke:#66816e}
+.country-shape.planned{fill:#e1d4b9;stroke:#ad8c4c}
+.country-shape.not-climbed{fill:#d7d4ca}
+.country-shape.neutral{fill:#e0ded6;opacity:.85}
+.country-layer path:hover{filter:brightness(.97)}
+
+/* Summit article */
+.photo-hero{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.hero-photo-button,.gallery-open{
+  border:0;
+  padding:0;
+  background:transparent;
+  cursor:zoom-in;
+  display:block;
+  width:100%;
+}
+.photo-hero img{
+  width:100%;
+  height:auto;
+  max-height:720px;
+  object-fit:cover;
+  display:block;
+}
+.photo-grid figure{overflow:hidden}
+.photo-grid .gallery-open{height:100%}
+.photo-grid .gallery-open img{transition:transform .2s ease}
+.photo-grid .gallery-open:hover img{transform:scale(1.015)}
+.photo-lightbox{
+  width:min(94vw,1500px);
+  max-width:none;
+  height:min(92vh,1000px);
+  border:0;
+  padding:42px;
+  background:#111;
+}
+.photo-lightbox::backdrop{background:rgba(0,0,0,.82)}
+.photo-lightbox img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+.lightbox-close{
+  position:absolute;
+  right:12px;
+  top:6px;
+  color:#fff;
+  background:transparent;
+  border:0;
+  font-size:36px;
+  line-height:1;
+  cursor:pointer;
+}
+@media(max-width:720px){
+  .photo-lightbox{padding:34px 10px 10px}
+}
