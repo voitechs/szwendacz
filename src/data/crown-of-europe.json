@@ -7,8 +7,8 @@
     "slug": "elbrus",
     "countrySlug": "russia",
     "countryCenter": [
-      43.355,
-      42.43916667
+      55.7558,
+      37.6173
     ],
     "summitDate": null,
     "elevationGain": null,
@@ -20,12 +20,7 @@
     ],
     "countrySlugs": [
       "russia"
-    ],
-    "coordinates": [
-      43.355,
-      42.43916667
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Mount_Elbrus"
+    ]
   },
   {
     "name": "Mont Blanc",
@@ -35,8 +30,8 @@
     "slug": "mont-blanc",
     "countrySlug": "france",
     "countryCenter": [
-      45.83277778,
-      6.865
+      44.04975,
+      7.390549999999999
     ],
     "summitDate": "2026-08-29",
     "elevationGain": null,
@@ -50,12 +45,7 @@
     "countrySlugs": [
       "france",
       "italy"
-    ],
-    "coordinates": [
-      45.83277778,
-      6.865
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Mont_Blanc"
+    ]
   },
   {
     "name": "Dufourspitze",
@@ -65,8 +55,8 @@
     "slug": "dufourspitze",
     "countrySlug": "switzerland",
     "countryCenter": [
-      45.93683333,
-      7.86705556
+      46.8182,
+      8.2275
     ],
     "summitDate": null,
     "elevationGain": null,
@@ -78,12 +68,7 @@
     ],
     "countrySlugs": [
       "switzerland"
-    ],
-    "coordinates": [
-      45.93683333,
-      7.86705556
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Dufourspitze"
+    ]
   },
   {
     "name": "Großglockner",
@@ -93,8 +78,8 @@
     "slug": "groglockner",
     "countrySlug": "austria",
     "countryCenter": [
-      47.07486667,
-      12.69525
+      47.5162,
+      14.5501
     ],
     "summitDate": "2025-08-30",
     "elevationGain": null,
@@ -106,12 +91,7 @@
     ],
     "countrySlugs": [
       "austria"
-    ],
-    "coordinates": [
-      47.07486667,
-      12.69525
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Grossglockner"
+    ]
   },
   {
     "name": "Mulhacén",
@@ -121,8 +101,8 @@
     "slug": "mulhacen",
     "countrySlug": "spain",
     "countryCenter": [
-      37.05333333,
-      -3.31138889
+      40.4637,
+      -3.7492
     ],
     "summitDate": "2024-01-13",
     "elevationGain": null,
@@ -134,12 +114,7 @@
     ],
     "countrySlugs": [
       "spain"
-    ],
-    "coordinates": [
-      37.05333333,
-      -3.31138889
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Mulhac%C3%A9n"
+    ]
   },
   {
     "name": "Zugspitze",
@@ -149,8 +124,8 @@
     "slug": "zugspitze",
     "countrySlug": "germany",
     "countryCenter": [
-      47.42111111,
-      10.98527778
+      51.1657,
+      10.4515
     ],
     "summitDate": "2017-08-17",
     "elevationGain": null,
@@ -162,12 +137,7 @@
     ],
     "countrySlugs": [
       "germany"
-    ],
-    "coordinates": [
-      47.42111111,
-      10.98527778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Zugspitze"
+    ]
   },
   {
     "name": "Pic de Coma Pedrosa",
@@ -177,8 +147,8 @@
     "slug": "pic-de-coma-pedrosa",
     "countrySlug": "andorra",
     "countryCenter": [
-      42.59055556,
-      1.44478056
+      42.5063,
+      1.5218
     ],
     "summitDate": "2023-10-21",
     "elevationGain": null,
@@ -190,12 +160,7 @@
     ],
     "countrySlugs": [
       "andorra"
-    ],
-    "coordinates": [
-      42.59055556,
-      1.44478056
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Coma_Pedrosa"
+    ]
   },
   {
     "name": "Musala",
@@ -205,8 +170,8 @@
     "slug": "musala",
     "countrySlug": "bulgaria",
     "countryCenter": [
-      42.17972222,
-      23.58666667
+      42.179722,
+      23.586667
     ],
     "summitDate": "2021-07-31",
     "elevationGain": null,
@@ -218,25 +183,20 @@
     ],
     "countrySlugs": [
       "bulgaria"
-    ],
-    "coordinates": [
-      42.17972222,
-      23.58666667
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Musala"
+    ]
   },
   {
     "name": "Mitikas",
     "country": "Greece",
     "height": 2918,
-    "status": "not-climbed",
+    "status": "climbed",
     "slug": "mitikas",
     "countrySlug": "greece",
     "countryCenter": [
-      40.08555556,
-      22.35861111
+      40.083333,
+      22.35
     ],
-    "summitDate": null,
+    "summitDate": "2021-06-13",
     "elevationGain": null,
     "distance": null,
     "durationMinutes": null,
@@ -246,12 +206,7 @@
     ],
     "countrySlugs": [
       "greece"
-    ],
-    "coordinates": [
-      40.08555556,
-      22.35861111
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Mount_Olympus"
+    ]
   },
   {
     "name": "Triglav",
@@ -261,8 +216,8 @@
     "slug": "triglav",
     "countrySlug": "slovenia",
     "countryCenter": [
-      46.37833333,
-      13.83666667
+      46.1512,
+      14.9955
     ],
     "summitDate": "2021-07-27",
     "elevationGain": null,
@@ -274,12 +229,7 @@
     ],
     "countrySlugs": [
       "slovenia"
-    ],
-    "coordinates": [
-      46.37833333,
-      13.83666667
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Triglav"
+    ]
   },
   {
     "name": "Korab",
@@ -289,8 +239,8 @@
     "slug": "korab",
     "countrySlug": "albania",
     "countryCenter": [
-      41.79111111,
-      20.54777778
+      41.38095,
+      20.9568
     ],
     "summitDate": "2024-07-08",
     "elevationGain": null,
@@ -304,12 +254,7 @@
     "countrySlugs": [
       "albania",
       "north-macedonia"
-    ],
-    "coordinates": [
-      41.79111111,
-      20.54777778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Mount_Korab"
+    ]
   },
   {
     "name": "Velika Rudoka",
@@ -319,8 +264,8 @@
     "slug": "velika-rudoka",
     "countrySlug": "kosovo",
     "countryCenter": [
-      41.91833333,
-      20.77638889
+      42.6026,
+      20.903
     ],
     "summitDate": "2024-07-10",
     "elevationGain": null,
@@ -332,12 +277,7 @@
     ],
     "countrySlugs": [
       "kosovo"
-    ],
-    "coordinates": [
-      41.91833333,
-      20.77638889
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Velika_Rudoka"
+    ]
   },
   {
     "name": "Gerlachovský štít",
@@ -347,8 +287,8 @@
     "slug": "gerlachovsky-stit",
     "countrySlug": "slovakia",
     "countryCenter": [
-      49.16402778,
-      20.13402778
+      48.669,
+      19.699
     ],
     "summitDate": "2021-09-21",
     "elevationGain": null,
@@ -360,12 +300,7 @@
     ],
     "countrySlugs": [
       "slovakia"
-    ],
-    "coordinates": [
-      49.16402778,
-      20.13402778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Gerlachovsk%C3%BD_%C5%A1t%C3%ADt"
+    ]
   },
   {
     "name": "Vorder Grauspitz",
@@ -375,8 +310,8 @@
     "slug": "vorder-grauspitz",
     "countrySlug": "liechtenstein",
     "countryCenter": [
-      47.05277778,
-      9.58194444
+      47.166,
+      9.5554
     ],
     "summitDate": "2026-07-12",
     "elevationGain": null,
@@ -388,12 +323,7 @@
     ],
     "countrySlugs": [
       "liechtenstein"
-    ],
-    "coordinates": [
-      47.05277778,
-      9.58194444
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Grauspitz"
+    ]
   },
   {
     "name": "Moldoveanu",
@@ -403,8 +333,8 @@
     "slug": "moldoveanu",
     "countrySlug": "romania",
     "countryCenter": [
-      45.6,
-      24.73777778
+      45.9432,
+      24.9668
     ],
     "summitDate": "2017-08-01",
     "elevationGain": null,
@@ -416,12 +346,7 @@
     ],
     "countrySlugs": [
       "romania"
-    ],
-    "coordinates": [
-      45.6,
-      24.73777778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Moldoveanu_Peak"
+    ]
   },
   {
     "name": "Zla Kolata",
@@ -431,8 +356,8 @@
     "slug": "zla-kolata",
     "countrySlug": "montenegro",
     "countryCenter": [
-      42.485,
-      19.89722222
+      42.7087,
+      19.3744
     ],
     "summitDate": "2023-06-09",
     "elevationGain": 1431,
@@ -454,12 +379,7 @@
     ],
     "countrySlugs": [
       "montenegro"
-    ],
-    "coordinates": [
-      42.485,
-      19.89722222
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Zla_Kolata"
+    ]
   },
   {
     "name": "Rysy",
@@ -469,8 +389,8 @@
     "slug": "rysy",
     "countrySlug": "poland",
     "countryCenter": [
-      49.17944444,
-      20.08805556
+      51.9194,
+      19.1451
     ],
     "summitDate": "2010-08-20",
     "elevationGain": null,
@@ -482,23 +402,18 @@
     ],
     "countrySlugs": [
       "poland"
-    ],
-    "coordinates": [
-      49.17944444,
-      20.08805556
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Rysy"
+    ]
   },
   {
-    "name": "Galdh?piggen",
+    "name": "Galdhopiggen",
     "country": "Norway",
     "height": 2469,
     "status": "climbed",
     "slug": "galdh-piggen",
     "countrySlug": "norway",
     "countryCenter": [
-      61.63644,
-      8.31248
+      60.472,
+      8.4689
     ],
     "summitDate": "2025-05-03",
     "elevationGain": null,
@@ -510,12 +425,7 @@
     ],
     "countrySlugs": [
       "norway"
-    ],
-    "coordinates": [
-      61.63644,
-      8.31248
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Galdh%C3%B8piggen"
+    ]
   },
   {
     "name": "Maglić",
@@ -525,8 +435,8 @@
     "slug": "maglic",
     "countrySlug": "bosnia-and-herzegovina",
     "countryCenter": [
-      43.28124,
-      18.73325
+      43.9159,
+      17.6791
     ],
     "summitDate": "2025-06-20",
     "elevationGain": null,
@@ -538,12 +448,7 @@
     ],
     "countrySlugs": [
       "bosnia-and-herzegovina"
-    ],
-    "coordinates": [
-      43.28124,
-      18.73325
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Magli%C4%87_(mountain)"
+    ]
   },
   {
     "name": "Pico",
@@ -553,8 +458,8 @@
     "slug": "pico",
     "countrySlug": "portugal",
     "countryCenter": [
-      38.46888889,
-      -28.39888889
+      39.3999,
+      -8.2245
     ],
     "summitDate": "2026-06-07",
     "elevationGain": null,
@@ -566,12 +471,7 @@
     ],
     "countrySlugs": [
       "portugal"
-    ],
-    "coordinates": [
-      38.46888889,
-      -28.39888889
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Mount_Pico"
+    ]
   },
   {
     "name": "Midżur",
@@ -581,8 +481,8 @@
     "slug": "midzur",
     "countrySlug": "serbia",
     "countryCenter": [
-      43.39388889,
-      22.68166667
+      44.0165,
+      21.0059
     ],
     "summitDate": "2025-07-12",
     "elevationGain": null,
@@ -594,12 +494,7 @@
     ],
     "countrySlugs": [
       "serbia"
-    ],
-    "coordinates": [
-      43.39388889,
-      22.68166667
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Mid%C5%BEor"
+    ]
   },
   {
     "name": "Hvannadalshnúkur",
@@ -609,8 +504,8 @@
     "slug": "hvannadalshnukur",
     "countrySlug": "iceland",
     "countryCenter": [
-      64.01583333,
-      -16.67472222
+      64.9631,
+      -19.0208
     ],
     "summitDate": "2026-05-08",
     "elevationGain": null,
@@ -622,12 +517,7 @@
     ],
     "countrySlugs": [
       "iceland"
-    ],
-    "coordinates": [
-      64.01583333,
-      -16.67472222
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Hvannadalshnj%C3%BAkur"
+    ]
   },
   {
     "name": "Kebnekaise",
@@ -637,8 +527,8 @@
     "slug": "kebnekaise",
     "countrySlug": "sweden",
     "countryCenter": [
-      67.90444444,
-      18.52833333
+      60.1282,
+      18.6435
     ],
     "summitDate": "2022-07-29",
     "elevationGain": null,
@@ -650,12 +540,7 @@
     ],
     "countrySlugs": [
       "sweden"
-    ],
-    "coordinates": [
-      67.90444444,
-      18.52833333
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Kebnekaise"
+    ]
   },
   {
     "name": "Howerla",
@@ -665,8 +550,8 @@
     "slug": "howerla",
     "countrySlug": "ukraine",
     "countryCenter": [
-      48.16,
-      24.50027778
+      48.3794,
+      31.1656
     ],
     "summitDate": "2025-06-08",
     "elevationGain": null,
@@ -678,12 +563,7 @@
     ],
     "countrySlugs": [
       "ukraine"
-    ],
-    "coordinates": [
-      48.16,
-      24.50027778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Hoverla"
+    ]
   },
   {
     "name": "Vrh Dinare",
@@ -693,8 +573,8 @@
     "slug": "vrh-dinare",
     "countrySlug": "croatia",
     "countryCenter": [
-      43.9450943,
-      16.59693
+      45.1,
+      15.2
     ],
     "summitDate": "2023-06-19",
     "elevationGain": null,
@@ -706,12 +586,7 @@
     ],
     "countrySlugs": [
       "croatia"
-    ],
-    "coordinates": [
-      43.9450943,
-      16.59693
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Dinara"
+    ]
   },
   {
     "name": "Sněžka",
@@ -720,10 +595,7 @@
     "status": "climbed",
     "slug": "snezka",
     "countrySlug": "czechia",
-    "countryCenter": [
-      50.73611111,
-      15.74027778
-    ],
+    "countryCenter": null,
     "summitDate": "2020-09-03",
     "elevationGain": null,
     "distance": null,
@@ -734,12 +606,7 @@
     ],
     "countrySlugs": [
       "czechia"
-    ],
-    "coordinates": [
-      50.73611111,
-      15.74027778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Sn%C4%9B%C5%BEka"
+    ]
   },
   {
     "name": "Ben Nevis",
@@ -749,8 +616,8 @@
     "slug": "ben-nevis",
     "countrySlug": "united-kingdom",
     "countryCenter": [
-      56.79685,
-      -5.003508
+      55.3781,
+      -3.436
     ],
     "summitDate": "2022-08-18",
     "elevationGain": null,
@@ -762,12 +629,7 @@
     ],
     "countrySlugs": [
       "united-kingdom"
-    ],
-    "coordinates": [
-      56.79685,
-      -5.003508
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Ben_Nevis"
+    ]
   },
   {
     "name": "Halti",
@@ -777,8 +639,8 @@
     "slug": "halti",
     "countrySlug": "finland",
     "countryCenter": [
-      69.32277778,
-      21.27888889
+      61.9241,
+      25.7482
     ],
     "summitDate": "2022-07-31",
     "elevationGain": null,
@@ -790,12 +652,7 @@
     ],
     "countrySlugs": [
       "finland"
-    ],
-    "coordinates": [
-      69.32277778,
-      21.27888889
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Halti"
+    ]
   },
   {
     "name": "Carrantuohill",
@@ -805,8 +662,8 @@
     "slug": "carrantuohill",
     "countrySlug": "ireland",
     "countryCenter": [
-      51.999445,
-      -9.742693
+      53.1424,
+      -7.6921
     ],
     "summitDate": "2021-09-05",
     "elevationGain": null,
@@ -818,23 +675,18 @@
     ],
     "countrySlugs": [
       "ireland"
-    ],
-    "coordinates": [
-      51.999445,
-      -9.742693
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Carrauntoohil"
+    ]
   },
   {
-    "name": "Mahya Da??",
+    "name": "Mahya Dagi",
     "country": "Turkey",
     "height": 1031,
     "status": "climbed",
     "slug": "mahya-da",
     "countrySlug": "turkey",
     "countryCenter": [
-      41.78333333,
-      27.61666667
+      38.9637,
+      35.2433
     ],
     "summitDate": "2025-09-28",
     "elevationGain": null,
@@ -846,12 +698,7 @@
     ],
     "countrySlugs": [
       "turkey"
-    ],
-    "coordinates": [
-      41.78333333,
-      27.61666667
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Mount_Mahya"
+    ]
   },
   {
     "name": "Kékes",
@@ -861,8 +708,8 @@
     "slug": "kekes",
     "countrySlug": "hungary",
     "countryCenter": [
-      47.87888889,
-      20.01027778
+      47.1625,
+      19.5033
     ],
     "summitDate": "2022-05-01",
     "elevationGain": null,
@@ -874,24 +721,16 @@
     ],
     "countrySlugs": [
       "hungary"
-    ],
-    "coordinates": [
-      47.87888889,
-      20.01027778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/K%C3%A9kes"
+    ]
   },
   {
-    "name": "Sl?ttaratindur",
+    "name": "Slaettaratindur",
     "country": "Dania",
     "height": 880,
     "status": "not-climbed",
     "slug": "sl-ttaratindur",
     "countrySlug": "dania",
-    "countryCenter": [
-      62.29638889,
-      -7.0125
-    ],
+    "countryCenter": null,
     "summitDate": null,
     "elevationGain": null,
     "distance": null,
@@ -902,12 +741,7 @@
     ],
     "countrySlugs": [
       "dania"
-    ],
-    "coordinates": [
-      62.29638889,
-      -7.0125
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Sl%C3%A6ttaratindur"
+    ]
   },
   {
     "name": "Monte Titano",
@@ -917,8 +751,8 @@
     "slug": "monte-titano",
     "countrySlug": "san-marino",
     "countryCenter": [
-      43.935,
-      12.45
+      43.9424,
+      12.4578
     ],
     "summitDate": "2019-10-06",
     "elevationGain": null,
@@ -930,12 +764,7 @@
     ],
     "countrySlugs": [
       "san-marino"
-    ],
-    "coordinates": [
-      43.935,
-      12.45
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Monte_Titano"
+    ]
   },
   {
     "name": "Signal de Botrange",
@@ -945,8 +774,8 @@
     "slug": "signal-de-botrange",
     "countrySlug": "belgium",
     "countryCenter": [
-      50.50166667,
-      6.09277778
+      50.5039,
+      4.4699
     ],
     "summitDate": "2023-04-30",
     "elevationGain": null,
@@ -958,12 +787,7 @@
     ],
     "countrySlugs": [
       "belgium"
-    ],
-    "coordinates": [
-      50.50166667,
-      6.09277778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Signal_de_Botrange"
+    ]
   },
   {
     "name": "Kneiff",
@@ -973,8 +797,8 @@
     "slug": "kneiff",
     "countrySlug": "luxembourg",
     "countryCenter": [
-      50.15769444,
-      6.03716667
+      49.8153,
+      6.1296
     ],
     "summitDate": "2023-05-01",
     "elevationGain": null,
@@ -986,12 +810,7 @@
     ],
     "countrySlugs": [
       "luxembourg"
-    ],
-    "coordinates": [
-      50.15769444,
-      6.03716667
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Kneiff"
+    ]
   },
   {
     "name": "Jurmysz",
@@ -1001,8 +820,8 @@
     "slug": "jurmysz",
     "countrySlug": "kazakhstan",
     "countryCenter": [
-      50.73593,
-      58.19092
+      48.0196,
+      66.9237
     ],
     "summitDate": null,
     "elevationGain": null,
@@ -1014,12 +833,7 @@
     ],
     "countrySlugs": [
       "kazakhstan"
-    ],
-    "coordinates": [
-      50.73593,
-      58.19092
-    ],
-    "coordinateSource": "https://nowahuta.pttk.pl/odznaka/414/"
+    ]
   },
   {
     "name": "Dealul Bălăneşti",
@@ -1029,8 +843,8 @@
     "slug": "dealul-balanesti",
     "countrySlug": "moldova",
     "countryCenter": [
-      47.21722222,
-      28.08305556
+      47.4116,
+      28.3699
     ],
     "summitDate": "2024-12-16",
     "elevationGain": null,
@@ -1042,12 +856,7 @@
     ],
     "countrySlugs": [
       "moldova"
-    ],
-    "coordinates": [
-      47.21722222,
-      28.08305556
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/B%C4%83l%C4%83ne%C8%99ti_Hill"
+    ]
   },
   {
     "name": "Dzyarzhynskaya Hara",
@@ -1057,8 +866,8 @@
     "slug": "dzyarzhynskaya-hara",
     "countrySlug": "belarus",
     "countryCenter": [
-      53.84861111,
-      27.06527778
+      53.7098,
+      27.9534
     ],
     "summitDate": null,
     "elevationGain": null,
@@ -1070,12 +879,7 @@
     ],
     "countrySlugs": [
       "belarus"
-    ],
-    "coordinates": [
-      53.84861111,
-      27.06527778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Dzyarzhynskaya_Hara"
+    ]
   },
   {
     "name": "Vaalserberg",
@@ -1085,8 +889,8 @@
     "slug": "vaalserberg",
     "countrySlug": "netherlands",
     "countryCenter": [
-      50.75472222,
-      6.02083333
+      52.1326,
+      5.2913
     ],
     "summitDate": "2023-04-30",
     "elevationGain": null,
@@ -1098,12 +902,7 @@
     ],
     "countrySlugs": [
       "netherlands"
-    ],
-    "coordinates": [
-      50.75472222,
-      6.02083333
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Vaalserberg"
+    ]
   },
   {
     "name": "Suur Munamägi",
@@ -1113,8 +912,8 @@
     "slug": "suur-munamagi",
     "countrySlug": "estonia",
     "countryCenter": [
-      57.71444444,
-      27.05916667
+      58.5953,
+      25.0136
     ],
     "summitDate": "2024-11-09",
     "elevationGain": null,
@@ -1126,12 +925,7 @@
     ],
     "countrySlugs": [
       "estonia"
-    ],
-    "coordinates": [
-      57.71444444,
-      27.05916667
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Suur_Munam%C3%A4gi"
+    ]
   },
   {
     "name": "Gaizinkalns",
@@ -1141,8 +935,8 @@
     "slug": "gaizinkalns",
     "countrySlug": "latvia",
     "countryCenter": [
-      56.87025833,
-      25.95935556
+      56.8796,
+      24.6032
     ],
     "summitDate": "2024-11-08",
     "elevationGain": null,
@@ -1154,12 +948,7 @@
     ],
     "countrySlugs": [
       "latvia"
-    ],
-    "coordinates": [
-      56.87025833,
-      25.95935556
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Gaizi%C5%86kalns"
+    ]
   },
   {
     "name": "Aukštójas",
@@ -1169,8 +958,8 @@
     "slug": "aukstojas",
     "countrySlug": "lithuania",
     "countryCenter": [
-      54.52708333,
-      25.62605556
+      55.1694,
+      23.8813
     ],
     "summitDate": "2023-05-28",
     "elevationGain": null,
@@ -1182,12 +971,7 @@
     ],
     "countrySlugs": [
       "lithuania"
-    ],
-    "coordinates": [
-      54.52708333,
-      25.62605556
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Auk%C5%A1tojas_Hill"
+    ]
   },
   {
     "name": "Ta’ Dmejrek",
@@ -1197,8 +981,8 @@
     "slug": "ta-dmejrek",
     "countrySlug": "malta",
     "countryCenter": [
-      35.84583333,
-      14.39694444
+      35.9375,
+      14.3754
     ],
     "summitDate": "2025-03-20",
     "elevationGain": null,
@@ -1210,12 +994,7 @@
     ],
     "countrySlugs": [
       "malta"
-    ],
-    "coordinates": [
-      35.84583333,
-      14.39694444
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Ta%27_Dmejrek"
+    ]
   },
   {
     "name": "Chemin des Révoires",
@@ -1225,8 +1004,8 @@
     "slug": "chemin-des-revoires",
     "countrySlug": "monaco",
     "countryCenter": [
-      43.73456944,
-      7.41286111
+      43.7384,
+      7.4246
     ],
     "summitDate": "2025-11-15",
     "elevationGain": null,
@@ -1238,12 +1017,7 @@
     ],
     "countrySlugs": [
       "monaco"
-    ],
-    "coordinates": [
-      43.73456944,
-      7.41286111
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Chemin_des_R%C3%A9voires"
+    ]
   },
   {
     "name": "Monte Vaticano",
@@ -1253,8 +1027,8 @@
     "slug": "monte-vaticano",
     "countrySlug": "vatican-city",
     "countryCenter": [
-      41.90361111,
-      12.45027778
+      41.9029,
+      12.4534
     ],
     "summitDate": null,
     "elevationGain": null,
@@ -1266,11 +1040,6 @@
     ],
     "countrySlugs": [
       "vatican-city"
-    ],
-    "coordinates": [
-      41.90361111,
-      12.45027778
-    ],
-    "coordinateSource": "https://en.wikipedia.org/wiki/Vatican_Hill"
+    ]
   }
 ]
