@@ -1,15 +1,25 @@
-Szwendacz GitHub patch v0.9
+Szwendacz map patch v1.1
 
-Replace only these files in the current main branch:
-- src/pages/projects/crown-of-europe.astro
-- src/pages/projects/crown-of-europe/[slug].astro
+Based on the current GitHub main structure.
+
+Replace/add:
+- package.json
+- src/components/EuropeProjectMap.astro
 - src/pages/index.astro
+- src/pages/projects/crown-of-europe.astro
 - src/styles/global.css
 
-Changes:
-- Crown of Europe: total elevation climbed
-- Crown of Europe: % of total elevation climbed
-- Crown of Europe: % of peaks climbed
-- improved green treatment for climbed peak rows
-- slightly smaller summit page titles
-- new muted mountain-green Crown of Europe card on homepage
+What changes:
+- map geometry comes from Natural Earth 1:50m through world-atlas
+- much more detailed country outlines
+- climbed countries are filled green
+- planned countries are warm gold
+- unclimbed project countries are grey
+- non-project/background countries are lighter
+- countries are clickable and open their country page
+- microstates get small clickable markers so they remain usable
+- no Leaflet, map tiles, or runtime web requests
+
+New npm dependencies:
+- world-atlas 2.0.2
+- topojson-client 3.1.0
