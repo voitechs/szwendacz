@@ -595,7 +595,10 @@
     "status": "climbed",
     "slug": "snezka",
     "countrySlug": "czechia",
-    "countryCenter": null,
+    "countryCenter": [
+      50.0875,
+      14.421389
+    ],
     "summitDate": "2020-09-03",
     "elevationGain": null,
     "distance": null,
@@ -730,7 +733,10 @@
     "status": "not-climbed",
     "slug": "sl-ttaratindur",
     "countrySlug": "dania",
-    "countryCenter": null,
+    "countryCenter": [
+      55.676111,
+      12.568333
+    ],
     "summitDate": null,
     "elevationGain": null,
     "distance": null,
