@@ -30,8 +30,8 @@
     "slug": "mont-blanc",
     "countrySlug": "france",
     "countryCenter": [
-      44.04975,
-      7.390549999999999
+      45.832778,
+      6.865
     ],
     "summitDate": "2026-08-29",
     "elevationGain": null,
@@ -170,8 +170,8 @@
     "slug": "musala",
     "countrySlug": "bulgaria",
     "countryCenter": [
-      42.179722,
-      23.586667
+      42.778301,
+      25.229763
     ],
     "summitDate": "2021-07-31",
     "elevationGain": null,
@@ -193,8 +193,8 @@
     "slug": "mitikas",
     "countrySlug": "greece",
     "countryCenter": [
-      40.083333,
-      22.35
+      39.363102,
+      21.865672
     ],
     "summitDate": "2021-06-13",
     "elevationGain": null,
@@ -527,8 +527,8 @@
     "slug": "kebnekaise",
     "countrySlug": "sweden",
     "countryCenter": [
-      60.1282,
-      18.6435
+      59.955896,
+      15.059544
     ],
     "summitDate": "2022-07-29",
     "elevationGain": null,
@@ -734,8 +734,8 @@
     "slug": "sl-ttaratindur",
     "countrySlug": "dania",
     "countryCenter": [
-      55.676111,
-      12.568333
+      56.000409,
+      9.390432
     ],
     "summitDate": null,
     "elevationGain": null,
